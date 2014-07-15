@@ -1,4 +1,4 @@
-deg = 5; % degree of random polynomial
+deg = 4; % degree of random polynomial
 n = 5000; % number of iterations
 means = 1:n; % will record mean of the differences between roots at each iteration
 gapsrange = 1:n;
@@ -61,8 +61,5 @@ nds = [nds [ds/mean(ds); zeros(12-deg,1)]];
 %     [m,n] = size(inds);
 %     plot((inds-ones(m,n))/(m-1),col(inds))
 % end
-
-clf
-plot(gapsrange)
 
 hold off
