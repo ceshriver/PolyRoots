@@ -100,5 +100,19 @@ Clearly, this implies that $|\lambda^{(N + k)}_3 - \lambda^{(N+k)}_2|$ is monoto
 Suppose now that for every $M$, there exist $m, k > M$ such that $\alpha_n > \beta_n$ and $\beta_k > \alpha_k$. Let $l$ be an index for "transition", i.e. $\alpha_l > \beta_l$ and $\beta_{l+1} > \alpha_{l+1}$ or vice versa. Without loss of generality, we are in the first situation. Recall that the $(1-D)$ operator moves $\lambda^{(l)}_{1}$ to the right by at most 1, $\lambda^{(l)}_{2}$ - by at most 2, and $\lambda^{(l)}_{3}$ - by at most 3. Therefore, $\alpha_{l+1} > \alpha_l - 1$ and $\beta_{l+1} < \beta_l + 3$. Combining these two inequalities with $\alpha_l > \beta_l$ and $\beta_{l+1} > \alpha_{l+1}$ leads to $\beta_l > \frac{\AG(f_l)}{2} - 2$. Since $l$ can be arbitrarily big, so can be $\AG(f_l)$. Due to Lemma~\ref{minimal gap increases}, this implies that the minimal gap between roots goes unbounded. In particular, $\lim \alpha_n = \lim \beta_n = \infty$.
 \qed
 
+Now, let us analyse the actual gaps between the roots. For that reason introduce $d_{i+1}(f(x)) := \lambda_{i+1}(f(x)) - \lambda_i(f(x))$.
 
+\begin{proposition}
+\label{miniamal gap is unbounded} 
+Suppose there is a sequence $\{f_k\}_1^\infty$ of real-rooted polynomials defined by $f_k(x) = (1-D)^k f_0(x)$, where $f_0(x)$ is real-rooted of degree $m$. Then
+\[\lim_{n\to\infty} \min_{1\leq i \leq m} d_i (f_n) = \infty\]
+holds true.
+\end{proposition}
+\proof Lemma~\ref{minimal gap increases} asserts the existence of such a limit. For the sake of contradiction, assume it is finite, say $l$. 
+
+We first analyze the behavior of the gaps between nonconsecutive roots of the $f_k(x)$ as $k$ increases. Applying Lemma~\ref{degree two avg distance} in combination with Lemma~\ref{degree two - slowest movement} easily show that all such gaps increase unboundedly and go to infinity. In particular, we have that
+\[|\lambda^{(n)}_{i+2} - \lambda^{(n)}_i|\to \infty\text{~as~$n\to\infty$}\]
+for every $1\leq i \leq n-2$. 
+
+Pick arbitrarily large number $L\in\mathbb{R}$. Then there exist a big enough $M$  
 \end{document}
