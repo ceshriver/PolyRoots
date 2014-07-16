@@ -1,5 +1,5 @@
-deg = 7; % degree of random polynomial
-n = 1000; % number of iterations
+deg = 4; % degree of random polynomial
+n = 5000; % number of iterations
 means = 1:n; % will record mean of the differences between roots at each iteration
 gapsrange = 1:n;
  
@@ -43,12 +43,17 @@ subplot(2,2,3);
 title('(Mean root difference after n iterations) - (predicted value)');
 hold on
 %plot(means)
-const = 2*sqrt(H(deg-1)/(deg-1));
+const = 2*H(deg-1)/(deg-1);
 m = mean(diff(sort(roots(p)))); % mean root difference of original polynomial
-del = (m/const)^2;
-plot(means./(const*sqrt((1:n)+del*ones(1,n))),'k-')
+y = zeros(1,n);
+y(1) = m + const/m;
+for i=2:n
+    y(i) = y(i-1) + const/y(i-1);
+end
+%del = (m/const)^2;
+plot(means - y,'k-')
 
-%nds = [nds [ds/mean(ds); zeros(12-deg,1)]];
+nds = [nds [ds/mean(ds); zeros(12-deg,1)]];
 
 % for i=1:10
 %     col = nds(:,i);
@@ -56,8 +61,5 @@ plot(means./(const*sqrt((1:n)+del*ones(1,n))),'k-')
 %     [m,n] = size(inds);
 %     plot((inds-ones(m,n))/(m-1),col(inds))
 % end
-
-%clf
-%plot(gapsrange)
 
 hold off
