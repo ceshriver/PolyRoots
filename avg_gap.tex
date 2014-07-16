@@ -108,11 +108,11 @@ Suppose there is a sequence $\{f_k\}_1^\infty$ of real-rooted polynomials define
 \[\lim_{n\to\infty} \min_{1\leq i \leq m} d_i (f_n) = \infty\]
 holds true.
 \end{proposition}
-\proof Lemma~\ref{minimal gap increases} asserts the existence of such a limit. For the sake of contradiction, assume it is finite, say $l$. 
+\proof Note first that Lemma~\ref{minimal gap increases} asserts the existence of such a limit. For the sake of contradiction, assume it is finite, say $l$.
 
 We first analyze the behavior of the gaps between nonconsecutive roots of the $f_k(x)$ as $k$ increases. Applying Lemma~\ref{degree two avg distance} in combination with Lemma~\ref{degree two - slowest movement} easily show that all such gaps increase unboundedly and go to infinity. In particular, we have that
 \[|\lambda^{(n)}_{i+2} - \lambda^{(n)}_i|\to \infty\text{~as~$n\to\infty$}\]
 for every $1\leq i \leq n-2$. 
 
-Pick arbitrarily large number $L\in\mathbb{R}$. Then there exist a big enough $M$  
+Pick arbitrarily large number $L\in\mathbb{R}$ and some $\varepsilon > 0$. Then there exist a big enough $M$ so that for all $n\geq M$ we have that all double gaps satisfy $|\lambda^{(n)}_{i+2} - \lambda^{(n)}_i| > L + l$ and also $\min_{1\leq i \leq m} d_i (f_n)> l - \varepsilon$. Denote by $\{j_k\}_{n}^{\infty}$ the sequence of indexes such that $d_{j_n}:=\min_{1\leq i \leq m} d_i (f_n)$ for $n\geq M$. Since both distances $|\lambda^{(n)}_{j_n+1} - \lambda^{(n)}_{j_n-1}|$ and $|\lambda^{(n)}_{j_n+2} - \lambda^{(n)}_{j_n}|$ are bigger than $L + l$, we have that $d_{j_n-1}> L$ and $d_{j_n+1} > L$ for all $n\geq M$.
 \end{document}
