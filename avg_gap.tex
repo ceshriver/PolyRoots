@@ -1,3 +1,109 @@
+<<<<<<< HEAD
+\documentclass[11pt]{article}
+
+\usepackage[cp1251]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{verbatim}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{tikz}
+
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\roots}{roots}
+\DeclareMathOperator{\AG}{AG}
+\DeclareMathOperator{\G}{G}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand*{\Line}[3][]{\tikz \draw[#1] #2 -- #3;}%
+
+\begin{document}
+\begin{center}
+\textbf{On the average root gap size after applying $(1-D)$ operator}\\
+Stanislav Atanasov and Christopher Shriver
+\end{center}
+
+An operator ...
+Throughout the paper, we use $\lambda_{min}=\lambda_1\leq \cdots \leq \lambda_n = \lambda_{max}$ to denote the roots of the real rooted polynomial $P(x)$. Of particular interest for us are the \emph{average gap}, $\AG(P)$, of the polynomial $P(x)$, defined by $\AG(P)=\frac{\lambda_{max} - \lambda_{min}}{\deg P - 1}$, as well as the \emph{$i$-th partial gap} $G_i(P)$, given by $\lambda_{max}-\lambda_i$. We establish the following
+
+\begin{theorem}
+please fill the exact formula
+\end{theorem}
+
+\subsection{Average gap after many iterations}
+ In this section, we show that the average gap approaches infinity when we apply $(1-D)$ operator many times. More precisely, for any sequence of real-rooted polynomials $\{f_k\}_1^{\infty}$, satisfying $f_{k+1}(x) = (1-D)^k f_{1}(x),$ it holds that $\lim_{n\to \infty} \AG(f_n) = \infty$. We prove this claim in two short steps.
+
+ \begin{lemma}
+ \label{degree two avg distance}
+ Let $f(x)$ be a real-rooted quadratic polynomial with roots $\lambda_1 \leq \lambda_2$. Then $\AG((1-D)^n) \to +\infty$ as ${n\to \infty}$.
+ \end{lemma}
+\proof
+Without loss of generality, we might assume that $f(x)$ is monic and write it as $x^2+ax+b$. The Vieta's formulas yield to $\AG(f) = \lambda_2 - \lambda_1 = \sqrt{a^2 - 4b}$. Introduce the sequence $\{f_k\}_{0}^\infty$ of polynomials given by $f_{k} (x)= (1-D)^k f_0(x)$ and $f_0(x) = f(x)$. Since $(1-D)$ preserves real-rootedness all $f_k(x)$ are real-rooted. In similar fashion, denote $\lambda_1^{(k)} \leq \lambda_2^{(k)}$ to be the two real roots of $f_k(x)$. Using Vieta's formulas once again, we obtain
+ \[\AG(f_k) = \sqrt{\AG(f_{k+1})^2 + 4}.~(*)\]
+
+ Clearly, $\AG(f_k) > \AG(f_{k-1})$ for every $k\ge 1$ and so  $\lim \AG(f_k)$ exists (possibly, and as we shall see, infinite). Assume it is finite, say $l$. Taking the limit on both sides of $(*)$ leads to $l = \sqrt{l^2 + 4},$ which is evidently impossible. Hence, $\lim \AG(f_k) = \infty$. \qed
+
+\begin{lemma}
+\label{degree two - slowest movement}
+Let $f(x)$ be a real-rooted polynomial with roots $\lambda_{min}=\lambda_1 < \lambda_2 \cdots \leq \lambda_{n-1} < \lambda_n = \lambda_{max}$. Then $AG((1-D)f) \geq AG[(1-D)f_{1,n}]$, where $f_{1,n} = (x - \lambda_{min})(x - \lambda_{max})$ is the quadratic polynomial with roots $\lambda_1$ and $\lambda_n$.
+\end{lemma}
+\proof Note that since $\lambda_{min}$ and $\lambda_{max}$ are simple roots, they are not roots of $(1-D)f$. Thus, the biggest and smallest root of $(1-D)f$ are the biggest and smallest root of $\frac{(1-D)f}{f}$. Let $x_0\in\mathbb{R}$ be biggest root of $(1-D)f(x)$. By the above remark, we have
+\[\frac{(1-D)f}{f}(x_0) = 0 \Leftrightarrow \sum_{i=1}^n \frac{1}{x_0 - \lambda_i} = 1.\]
+
+Note that $x_0 > \lambda_i,~\forall 1\leq i \leq n$ and so $\frac{1}{x_0 - \lambda_1} + \frac{1}{x_0 - \lambda_n} < \sum_{i=1}^n \frac{1}{x_0 - \lambda_i} = 1.$ In particular, since $\frac{(1-D)f_{1,n}}{f_{1,n}}(x) = \frac{1}{x - \lambda_1} + \frac{1}{x - \lambda_n}$ is monotonically decreasing function on $(\lambda_n, +\infty)$, the above inequality implies that the biggest root of $(1-D)f_{1,n}$ is smaller than $x_0$. Similarly, we prove that the smallest root of $(1-D)f_{1,n}$ is bigger than the smallest root of $(1-D)f$. Hence, the claim follows. \qed
+
+Now, combining the two lemmata, we easily derive
+
+\begin{proposition}For any sequence of real-rooted polynomials $\{f_k\}_0^{\infty}$, satisfying $f_{k+1}(x) = (1-D)^k f_{0}(x),$ we have $\lim_{n\to \infty} \AG(f_n) =  \infty.$
+\end{proposition}
+\label{avg gap goes to infty}
+\proof Note that if $\lambda$ is a root of multiplicity $k$, then it is a root of multiplicity $k-1$ of $(1-D)f$. Therefore, after $deg f$ applications of the $(1-D)$ operator, we obtain a polynomial with simple roots. Therefore, we might, without loss of generality, assume that $f_0$ has simple roots. Otherwise, we could just pick $f_{deg f_0}$ as a first element of our sequence. Suppose $\lambda_{min}=\lambda_1 < \lambda_2 \cdots \leq \lambda_{n-1} < \lambda_n = \lambda_{max}$ are the roots of $f_0(x)$. Now repeated application of Lemma~\ref{degree two - slowest movement}, coupled with the observation that $\AG((1-D)[(x-a)(x-b)]) \geq \AG((1-D)[(x-c)(x-d)])$ whenever $c < a,~b<d$, leads to
+
+\[\AG(f_k)= \AG((1-D)^kf_0)\geq\AG((1-D)^k [(x-\lambda_{min})(x-\lambda_{max})]),\]
+for every $k\in\mathbb{N}$. Applying Lemma~\ref{degree two avg distance} shows that, as $k$ grows, the right hand side goes to $\infty$, and thus so does the expression on the left. \qed
+
+\subsection{The growth of $i$-th partial gap}
+In the previous section, we concluded that the average gap increases without bound upon repeated applications of the $(1-D)$ operator. Recall, that $i$-th partial gap of a polynomial $f$ is $G_i = \lambda_{max} - \lambda_{n-i}$. Proposition~\ref{avg gap goes to infty} asserts that the $n$-th partial gap, i.e. a multiple of the average gap, goes to infinity. A natural question is to ask whether the same thing holds for each of the partial gaps. As we shall see, this is indeed true.
+
+\begin{lemma}
+\label{minimal gap increases}
+ Consider sequence of real-rooted polynomials $\{f_k\}_1^\infty$ given by $f_k(x) = (1-D)^k f_0(x)$. Then
+ \[\min |\lambda^{(n+1)}_{i+1} - \lambda^{(n+1)}_i | > \min |\lambda^{(n)}_{i+1} - \lambda^{(n)}_i |\]
+\end{lemma}
+
+\begin{lemma}
+\label{all gaps grow - case with 3}
+Let $f(x)$ be a real-rooted cubic polynomial with roots $\lambda_1 \leq \lambda_2 \leq \lambda_3$. Construct a sequence $\{f_k\}_1^\infty$ defined by $f_k(x) = (1-D)^k f_0(x)$, where $f_0(x) = f(x)$. Then we have that
+\[\lim_{n\to \infty} G_1 (f_n) = \infty\]
+\end{lemma}
+\proof
+As discussed earlier, we might without loss of generality assume that all roots of $f(x)$ are simple. By Proposition~\ref{avg gap goes to infty}, we establish that $\AG(f_k)$ goes to $\infty$. In particular, if we denote by $\lambda^{(k)}_1 < \lambda^{(k)}_2 < \lambda^{(k)}_3$ the roots of $f_k(x)$, we have $\underbrace{|\lambda^{(k)}_3 - \lambda^{(k)}_2|}_{\alpha_k} + \underbrace{|\lambda^{(k)}_2 - \lambda^{(k)}_1}_{\beta_k}|$ grows to infinity.
+
+As discussed earlier, we might without loss of generality assume that all roots of $f(x)$ are simple. By Proposition~\ref{avg gap goes to infty}, we establish that $\AG(f_k)$ goes to $\infty$. In particular, if we denote by $\lambda^(k)_1 < \lambda^{(k)}_2 < \lambda^{(k)}_3$ the roots of $f_k(x)$, we have $\underbrace{|\lambda^{(k)}_3 - \lambda^{(k)}_2|}_{\alpha_k} + \underbrace{|\lambda^{(k)}_2 - \lambda^{(k)}_1}_{\beta_k}|$ grows to infinity. This implies that for big enough $k$ one of the numbers $\alpha_k$ or $\beta_k$ is arbitrarily big.
+
+\textbf{1 case:} Suppose there exist $N$ such that $\alpha_n > \beta_n$ and $\beta_n > \alpha_n$ holds for every $n\geq N$. Assume the later holds. Then since $\alpha_n + \beta_n = \AG(f_n)$, we derive that $\beta_ n > \frac{\AG(f_n)}{2},~\forall n \geq N$. Since the right hand side goes to infinity, then so does the right hand side, which is what we wanted to prove. For the sake of contradiction, assume that $\alpha_n > \beta_n,~\forall n \geq N$. Then for any $n$, we have for any of the roots of $f_{n+1}(x) = (1-D)f_n(x)$ that
+\[\frac{1}{x_0 - \lambda^{(n)}_1} + \frac{1}{x_0 - \lambda^{(n)}_2} + \frac{1}{x_0 - \lambda^{(n)}_3} = 1\]
+Let $\varepsilon > 0$. By assumption there exist $N$ so that for any $n \geq N$ the two bigger roots of $f_{n+1}(x)$ are far enough from $\lambda^{(n)}_1$ so that $\frac{1}{x_0 - \lambda^{(n)}_1} < \varepsilon$, implying $\frac{1}{x_0 - \lambda^{(n)}_2} + \frac{1}{x_0 - \lambda^{(n)}_3} < 1 - \varepsilon$. Since $\frac{1}{x - \lambda^{(n)}_2} + \frac{1}{x - \lambda^{(n)}_3}$ is monotonically decreasing function, the distance $|\mu_2 - \mu_1|$ between the roots $\mu_1 < \mu_2$ of $g(x) = \frac{1}{x - \lambda^{(n)}_2} + \frac{1}{x - \lambda^{(n)}_3} - 1 + \varepsilon = 0$ is smaller than the distance $|\lambda^{(n+1)}_3 - \lambda^{(n+1)}_2|$. By Vieta's formula we then establish
+
+\[|\lambda^{(n+1)}_3 - \lambda^{(n+1)}_2|\ge |\mu_2 - \mu_1| = \sqrt{|\lambda^{(n)}_3 - \lambda^{(n)}_2|^2 + \frac{4}{(1+\varepsilon)^2}} > \sqrt{|\lambda^{(n)}_3 - \lambda^{(n)}_2|^2 +4}.\]
+Clearly, this implies that $|\lambda^{(N + k)}_3 - \lambda^{(N+k)}_2|$ is monotonically increasing sequence. Assuming it has a finite limit $l$, leads to $l > \sqrt{l^2 +4}$, which is absurd. Hence, $\lim_{n\to \infty} |\lambda^{(n)}_3 - \lambda^{(n)}_2|=\lim_{k\to \infty} |\lambda^{(N + k)}_3 - \lambda^{(N+k)}_2| = \infty,$ as claimed.
+
+\textbf{2 case:}
+Suppose now that for every $M$, there exist $m, k > M$ such that $\alpha_n > \beta_n$ and $\beta_k > \alpha_k$. Let $l$ be an index for "transition", i.e. $\alpha_l > \beta_l$ and $\beta_{l+1} > \alpha_{l+1}$ or vice versa. Without loss of generality, we are in the first situation. Recall that the $(1-D)$ operator moves $\lambda^{(l)}_{1}$ to the right by at most 1, $\lambda^{(l)}_{2}$ - by at most 2, and $\lambda^{(l)}_{3}$ - by at most 3. Therefore, $\alpha_{l+1} > \alpha_l - 1$ and $\beta_{l+1} < \beta_l + 3$. Combining these two inequalities with $\alpha_l > \beta_l$ and $\beta_{l+1} > \alpha_{l+1}$ leads to $\beta_l > \frac{\AG(f_l)}{2} - 2$. Since $l$ can be arbitrarily big, so can be $\AG(f_l)$. Due to Lemma~\ref{minimal gap increases}, this implies that the minimal gap between roots goes unbounded. In particular, $\lim \alpha_n = \lim \beta_n = \infty$.
+\qed
+
+
+\end{document}
+=======
 \documentclass[11pt]{article}
 
 \usepackage[cp1251]{inputenc}
@@ -116,3 +222,4 @@ for every $1\leq i \leq n-2$.
 
 Pick arbitrarily large number $L\in\mathbb{R}$. Then there exist a big enough $M$  
 \end{document}
+>>>>>>> FETCH_HEAD
