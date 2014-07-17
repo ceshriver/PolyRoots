@@ -1,5 +1,4 @@
 \documentclass[11pt]{article}
-<<<<<<< HEAD
 
 \usepackage[cp1251]{inputenc}
 \usepackage[english]{babel}
@@ -106,7 +105,7 @@ Suppose now that for every $M$, there exist $m, k > M$ such that $\alpha_n > \be
 Now, let us analyse the actual gaps between the roots. For that reason introduce $d_{i+1}(f(x)) := \lambda_{i+1}(f(x)) - \lambda_i(f(x))$.
 
 \begin{proposition}
-\label{miniamal gap is unbounded} 
+\label{miniamal gap is unbounded}
 Suppose there is a sequence $\{f_k\}_1^\infty$ of real-rooted polynomials defined by $f_k(x) = (1-D)^k f_0(x)$, where $f_0(x)$ is real-rooted of degree $m$. Then
 \[\lim_{n\to\infty} \min_{1\leq i \leq m} d_i (f_n) = \infty\]
 holds true.
@@ -115,16 +114,10 @@ holds true.
 
 We first analyze the behavior of the gaps between nonconsecutive roots of the $f_k(x)$ as $k$ increases. Applying Lemma~\ref{degree two avg distance} in combination with Lemma~\ref{degree two - slowest movement} easily show that all such gaps increase unboundedly and go to infinity. In particular, we have that
 \[|\lambda^{(n)}_{i+2} - \lambda^{(n)}_i|\to \infty\text{~as~$n\to\infty$}\]
-for every $1\leq i \leq n-2$. 
+for every $1\leq i \leq n-2$.
 
 Pick arbitrarily large number $L\in\mathbb{R}$ and some $\varepsilon > 0$. Then there exist a big enough $M$ so that for all $n\geq M$ we have that all double gaps satisfy $|\lambda^{(n)}_{i+2} - \lambda^{(n)}_i| > L + l$ and also $\min_{1\leq i \leq m} d_i (f_n)> l - \varepsilon$. Denote by $\{j_k\}_{n}^{\infty}$ the sequence of indexes such that $d_{j_n}:=\min_{1\leq i \leq m} d_i (f_n)$ for $n\geq M$. Since both distances $|\lambda^{(n)}_{j_n+1} - \lambda^{(n)}_{j_n-1}|$ and $|\lambda^{(n)}_{j_n+2} - \lambda^{(n)}_{j_n}|$ are bigger than $L + l$, we have that $d_{j_n-1}> L$ and $d_{j_n+1} > L$ for all $n\geq M$.
-\end{document}
-=======
->>>>>>> origin/master
 
-
-<<<<<<< HEAD
-=======
 Note that $x_0 > \lambda_i,~\forall 1\leq i \leq n$ and so $\frac{1}{x_0 - \lambda_1} + \frac{1}{x_0 - \lambda_n} < \sum_{i=1}^n \frac{1}{x_0 - \lambda_i} = 1.$ In particular, since $\frac{(1-D)f_{1,n}}{f_{1,n}}(x) = \frac{1}{x - \lambda_1} + \frac{1}{x - \lambda_n}$ is monotonically decreasing function on $(\lambda_n, +\infty)$, the above inequality implies that the biggest root of $(1-D)f_{1,n}$ is smaller than $x_0$. Similarly, we prove that the smallest root of $(1-D)f_{1,n}$ is bigger than the smallest root of $(1-D)f$. Hence, the claim follows. \qed
 
 Now, combining the two lemmata, we easily derive
@@ -143,9 +136,12 @@ In the previous section, we concluded that the average gap increases without bou
 \begin{lemma}
 \label{minimal gap increases}
  Consider sequence of real-rooted polynomials $\{f_k\}_1^\infty$ given by $f_k(x) = (1-D)^k f_0(x)$. Then
- \[\min |\lambda^{(n+1)}_{i+1} - \lambda^{(n+1)}_i | > \min |\lambda^{(n)}_{i+1} - \lambda^{(n)}_i |\]
+ \[\min |\lambda^{(n+1)}_{i+1} - \lambda^{(n+1)}_i | \geq \min |\lambda^{(n)}_{i+1} - \lambda^{(n)}_i |\]
 \end{lemma}
+\proof Chris, please add it.
+\qed
 
+\begin{comment}
 \begin{lemma}
 \label{all gaps grow - case with 3}
 Let $f(x)$ be a real-rooted cubic polynomial with roots $\lambda_1 \leq \lambda_2 \leq \lambda_3$. Construct a sequence $\{f_k\}_1^\infty$ defined by $f_k(x) = (1-D)^k f_0(x)$, where $f_0(x) = f(x)$. Then we have that
@@ -166,21 +162,41 @@ Clearly, this implies that $|\lambda^{(N + k)}_3 - \lambda^{(N+k)}_2|$ is monoto
 \textbf{2 case:}
 Suppose now that for every $M$, there exist $m, k > M$ such that $\alpha_n > \beta_n$ and $\beta_k > \alpha_k$. Let $l$ be an index for "transition", i.e. $\alpha_l > \beta_l$ and $\beta_{l+1} > \alpha_{l+1}$ or vice versa. Without loss of generality, we are in the first situation. Recall that the $(1-D)$ operator moves $\lambda^{(l)}_{1}$ to the right by at most 1, $\lambda^{(l)}_{2}$ - by at most 2, and $\lambda^{(l)}_{3}$ - by at most 3. Therefore, $\alpha_{l+1} > \alpha_l - 1$ and $\beta_{l+1} < \beta_l + 3$. Combining these two inequalities with $\alpha_l > \beta_l$ and $\beta_{l+1} > \alpha_{l+1}$ leads to $\beta_l > \frac{\AG(f_l)}{2} - 2$. Since $l$ can be arbitrarily big, so can be $\AG(f_l)$. Due to Lemma~\ref{minimal gap increases}, this implies that the minimal gap between roots goes unbounded. In particular, $\lim \alpha_n = \lim \beta_n = \infty$.
 \qed
+\end{comment}
 
-Now, let us analyse the actual gaps between the roots. For that reason introduce $d_{i+1}(f(x)) := \lambda_{i+1}(f(x)) - \lambda_i(f(x))$.
+Now, let us analyse the actual gaps between the roots. For that reason introduce $d_{i+1}(f) := \lambda_{i+1}(f) - \lambda_i(f)$.
+
+\begin{lemma}
+\label{minimal gap shall approach}
+ Consider a sequence $\{f_k\}_1^\infty$ of real-rooted polynomials defined by $f_k(x) = (1-D)^k f_0(x)$, where $f_0(x)$ is real-rooted of degree $m$. Suppose for some $n\in\mathbb{N}$, we have that there exist an index $1\leq i\leq n-1$ satisfying $d_{i-1} \geq L$ and $d_{i+1} \geq L$ for some real number $L$. Then we have that $\lambda^{(n+1)}_i$ is smaller than the smaller root of
+ \[\frac{i-1}{L}+\frac{1}{x-\lambda^{(n)}_i} + \frac{1}{x-\lambda^{(n)}_{i+1}} = 1.\]
+ Similarly, $\lambda^{(n+1)}_{i+1}$ is bounded from bellow by the bigger root of 
+ \[\frac{n-(i+1)}{L}+\frac{1}{x-\lambda^{(n)}_i} + \frac{1}{x-\lambda^{(n)}_{i+1}} = 1.\]
+\end{lemma}
+\proof
+We only need to show the first bound since the second one can be proven analogously. We know that $\lambda^{(n+1)}_i\in(\lambda^{(n)}_i,\lambda^{(n)}_{i+1})$. Then the claim follows since for every $x\in (\lambda^{(n)}_i,\lambda^{(n)}_{i+1})$ we have that
+\[\sum^{i-1}_{k=1} \frac{1}{x-\lambda^{(n)}_k} + \frac{1}{x-\lambda^{(n)}_i} + \frac{1}{x-\lambda^{(n)}_{i+1}} + \sum^n_{k = i+2} \frac{1}{x-\lambda^{(n)}_k} < \frac{i-1}{L}+\frac{1}{x-\lambda^{(n)}_i} + \frac{1}{x-\lambda^{(n)}_{i+1}} \]
+and that $\frac{1}{x-\lambda^{(n)}_i} + \frac{1}{x-\lambda^{(n)}_{i+1}}$ is monotonically decreasing in $(\lambda^{(n)}_i,\lambda^{(n)}_{i+1})$.
+\qed
+
 
 \begin{proposition}
-\label{miniamal gap is unbounded} 
+\label{minimal gap is unbounded}
 Suppose there is a sequence $\{f_k\}_1^\infty$ of real-rooted polynomials defined by $f_k(x) = (1-D)^k f_0(x)$, where $f_0(x)$ is real-rooted of degree $m$. Then
 \[\lim_{n\to\infty} \min_{1\leq i \leq m} d_i (f_n) = \infty\]
 holds true.
 \end{proposition}
-\proof Lemma~\ref{minimal gap increases} asserts the existence of such a limit. For the sake of contradiction, assume it is finite, say $l$. 
+\proof Lemma~\ref{minimal gap increases} asserts the existence of such a limit. For the sake of contradiction, assume it is finite, say $l$.
 
 We first analyze the behavior of the gaps between nonconsecutive roots of the $f_k(x)$ as $k$ increases. Applying Lemma~\ref{degree two avg distance} in combination with Lemma~\ref{degree two - slowest movement} easily show that all such gaps increase unboundedly and go to infinity. In particular, we have that
 \[|\lambda^{(n)}_{i+2} - \lambda^{(n)}_i|\to \infty\text{~as~$n\to\infty$}\]
-for every $1\leq i \leq n-2$. 
+for every $1\leq i \leq n-2$.
 
-Pick arbitrarily large number $L\in\mathbb{R}$. Then there exist a big enough $M$  
+Pick arbitrarily large number $L\in\mathbb{R}$ and some $\varepsilon > 0$. Then there exist a big enough $M$ so that for all $n\geq M$ we have that all double gaps satisfy $|\lambda^{(n)}_{i+2} - \lambda^{(n)}_i| > L + l$ and also $\min_{1\leq i \leq m} d_i (f_n)> l - \varepsilon$. Denote by $\{j_k\}_{n}^{\infty}$ the sequence of indexes such that $d_{j_n}:=\min_{1\leq i \leq m} d_i (f_n)$ for $n\geq M$. Since both distances $|\lambda^{(n)}_{j_n+1} - \lambda^{(n)}_{j_n-1}|$ and $|\lambda^{(n)}_{j_n+2} - \lambda^{(n)}_{j_n}|$ are bigger than $L + l$, we have that $d_{j_n-1}> L$ and $d_{j_n+1} > L$ for all $n\geq M$. 
+
+This means that we are in the conditions of Lemma~\ref{minimal gap shall approach}, which gives us a lower bound of the $d_{j_{n+1}}$ for every $n\geq M$. However, note that if $L$ is big enough, the quantities $\frac{i-1}{L}$ and $\frac{n-(i+1)}{L}$ from Lemma~\ref{minimal gap shall approach} become negligibly small. Therefore, by continuity, for every $\delta > 0$, there is $M$ such that the corresponding $L$ is big enough such that the roots $\lambda^{(n+1)}_{j_n}$ and $\lambda^{(n+1)}_{j_n}$ are both within $\frac{\delta}{2}$ of the roots $\mu^{(n)}_1,~\mu^{(n)}_2$ of $\frac{1}{x-\lambda^{(n)}_{j_n}} + \frac{1}{x-\lambda^{(n)}_{j_n+1}} = 1,~\forall n\geq M$. In particular, $|\lambda^{(n+1)}_{j_n+1} - \lambda^{(n+1)}_{j_n}|>|\mu^{(n)}_1 - \mu^{(n)}_2| - \delta,~\forall n\geq M$.
+
+Recall that $|\mu^{(n)}_1 - \mu^{(n)}_2|= \sqrt{|\lambda^{(n)}_{j_n+1} - \lambda^{(n)}_{j_n}|^2 + 4}$. Now, since $\varepsilon > 0$ was picked arbitrarily, we might assume it is small enough so that $\sqrt{|\lambda^{(n)}_{j_n+1} - \lambda^{(n)}_{j_n}|^2 + 4} > l$. Now, the choice of $\delta$ was independent of $\varepsilon$, so we pick $0< \delta <\sqrt{|\lambda^{(n)}_{j_n+1} - \lambda^{(n)}_{j_n}|^2 + 4} - |\mu^{(n)}_1 - \mu^{(n)}_2|$. This evidently leads to contradiction, which was based on the assumption that the limit $l$ is finite. Hence, $\lim_{n\to\infty} \min_{1\leq i \leq m} d_i (f_n) = \infty$, as desired. \qed
+
 \end{document}
->>>>>>> origin/master
+
