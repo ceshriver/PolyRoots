@@ -223,6 +223,32 @@ First, another lemma that I think can be useful elsewhere as well:
 	The proof for $\mu<\mu_i$ is essentially the same.
 \end{proof}
 
+The following lemma easily follows:
+
+\begin{lemma}
+	Appending a root between two (not necessarily adjacent) roots increases the change in their difference upon applying $1-D$.
+\end{lemma}
+For example, if the gap between the roots of $(x-1)(x-3)$ changes by $\delta$, then the gap between the outer two roots of $(x-1)(x-2)(x-3)$ will change by more than $\delta$.
+
+We already know that the gap between the largest and smallest roots is nondecreasing. The previous lemma can be used to show that it approaches infinity:
+
+\begin{lemma}
+	For any polynomial $f$,
+	 \[ \lim_{n\to\infty} \lambda_{\max}\big[(1-D)^n f\big]-\lambda_{\min}\big[(1-D)^n f\big] = \infty. \]
+\end{lemma}
+\begin{proof}
+	Because the quantity of interest is nondecreasing, it is enough to show that it has no finite limit. Suppose it did approach some number $l < \infty$. Then there is some number of iterations of $1-D$ after which the difference between the maximum and minimum roots is arbitrarily close to $l$. Suppose a polynomial with only two roots separated by $l$ has its gap increased by $\delta$. Then if the two roots are closer than $l$ and more roots are appended in between, the gap will still increase by at least $\delta$. Therefore if the gap between extremal roots is at least $l - \delta/2$, then after applying $1-D$ it will be at least $l + \delta/2$. This is a contradiction, so it must be that the gap is unbouded.
+\end{proof}
+
+Now we only need one more lemma, after which the theorem will follow by induction. First a definition: by `$n$-gap' we mean a gap between two roots that have $n-1$ other roots between them. For example $\mu_4-\mu_1$ is a 3-gap, and the difference between the minimum and maximum roots of a degree $m$ polynomial is an $(m-1)$-gap. Now the lemma:
+
+\begin{lemma}
+	Suppose the $n$-gaps of a given polynomial approach infinity. Then the $n-1$ gaps do as well.
+\end{lemma}
+\begin{proof}
+
+\end{proof}
+
 \begin{thebibliography}{9}
 \bibitem{diffspacing}
  Farmer, D.W. and Rhoades, R.C.
