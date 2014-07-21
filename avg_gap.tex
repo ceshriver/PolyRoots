@@ -211,11 +211,16 @@ First, another lemma that I think can be useful elsewhere as well:
 		\item if $\mu \leq \mu_i$, then $\lambda_{i+1}\big[(1-D)\tilde{f}\big] \geq \mu_i + \delta$ (note that since a root has been added to the left, the $(i+1)$th root of $\tilde{f}$ is the root which intuitively corresponds to the $i$th root of $f$), and 
 		\item if $\mu > \mu_i$, then $\lambda_{i}\big[(1-D)\tilde{f}\big] \leq \mu_i + \delta$.
 	\end{enumerate}
-	Furthermore, the inequalities are strict whenever $\mu_i$ is a simple root of $\tilde{f}$. \\
 	Loosely speaking, the added root has the effect of `repelling' the old roots of $(1-D)f$.
 \end{lemma}
 \begin{proof}
-	
+	First consider the second case, $\mu > \mu_i$. If $\mu \leq \mu_i + \delta$, then the result follows immediately from interlacing. \\
+	If instead $\mu > \mu_i + \delta$, we can use the logarithmic derivative to get the bound we want. If $\delta=0$ then $\mu_i$ is a root of multiplicity and adding the root $\mu$ will not change how much it moves. Assume instead then that $\delta>0$. Then $\mu_i+\delta$ is a root of $\frac{f^\prime}{f}$, i.e.
+		\[ \sum_{j=1}^n \frac{1}{(\mu_i+\delta)-\mu_j} = 1. \]
+	We would like to find the root of $(1-D)\tilde{f}$, that is the solution of
+		\[ \sum_{j=1}^n \frac{1}{x-\mu_j} + \frac{1}{x-\mu} = 1, \]
+	that is closest to the right of $\mu_i$. We know that for $x=\mu_i+\delta$ the sum is equal to 1 and the second term is negative, so the left hand side is less than 1. It is also apparent that the sum is much greater than 1 for $x$ just to the right of $\mu_i$, and continuous for $x \in (\mu_i, \mu_i+\delta)$. Therefore by the intermediate value theorem there is a solution in $(\mu_i, \mu_i+\delta)$ and the result immediately follows. \\
+	The proof for $\mu<\mu_i$ is essentially the same.
 \end{proof}
 
 \begin{thebibliography}{9}
