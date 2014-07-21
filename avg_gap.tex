@@ -251,16 +251,16 @@ Now we only need one more lemma, after which the theorem will follow by inductio
 		\[ \liminf_{i\to\infty} G_{n-1}\big[(1-D)^i f\big] = l \]
 	where $G_n[f]$ is the size of the smallest $n$-gap of $f$. Choose $\e$ so that two (isolated) roots with separation less than $l+\e$ will have their separation increased by at least $3\e$. Choose $L$ large enough that
 	\begin{enumerate}
-		\item If an $(n-1)$-gap is at most $l+m+1$ wide, and all roots outside the gap are at least $L$ away, then the size of the gap increases; and
+		\item If an $(n-1)$-gap is at most $l+m+\e$ wide, and all roots outside the gap are at least $L$ away, then the size of the gap increases; and
 		\item If an $(n-1)$-gap is at most $l+\e$ wide, and all roots outside the gap are at least $L$ away, then the outside roots' effect on the change in gap size is at most $\e$.
 	\end{enumerate}
 	By the assumption that the $n$-gaps approach infinity, there exists $N$ so that for all $i>N$
-		\[ G_n\big[(1-D)^i f\big] > L + l + m + 1. \]
+		\[ G_n\big[(1-D)^i f\big] > L + l + m + \e. \]
 	By the assumption that the $\liminf$ of the smallest $(n-1)$-gap is $l$, there exist arbitrarily large $j$ such that 
 		\[ l-\e < G_{n-1}\big[ (1-D)^j f\big] < l+\e. \]
 	Choose such a $j$ which is greater than $N$. Due to the choice of $\e$ and $N$, we then have
 		\[ G_{n-1}\big[ (1-D)^{j+1} f\big] > l+\e. \]
-	For all further iterations, we have that an $(n-1)$-gap either increases, or if it is larger than $l+m+1$, it may decrease. However, it may only decrease by at most $m$. Therefore the size of an $(n-1)$-gap will never drop below $l+\e$, contradicting that $l$ is the $\liminf$. It must then be that the $\liminf$ is infinite, so the size of the smallest $(n-1)$-gap approaches infinity.
+	For all further iterations, we have that an $(n-1)$-gap either increases, or if it is larger than $l+m+\e$, it may decrease. However, it may only decrease by at most $m$. Therefore the size of an $(n-1)$-gap will never drop below $l+\e$, contradicting that $l$ is the $\liminf$. It must then be that the $\liminf$ is infinite, so the size of the smallest $(n-1)$-gap approaches infinity.
 \end{proof}
 
 \begin{thebibliography}{9}
