@@ -303,7 +303,8 @@ However, in a sense the roots tend to converge on their average, as given by the
 	but again we are only interested in the largest degree term, where $k=0$:
 		\[ \frac{1}{m-i+1}n^{m-i+1}. \]
 	Therefore we now have
-		\[ a_{i-1}^{(n)} = (-1)^{m-(i-1)} i \frac{m!}{i!(m-i)} \cdot \frac{1}{m-i+1} n^{m-i+1} = (-1)^{m-(i-1)} \binom{m}{i-1} n^{m-(i-1)} \]
+		\[ a_{i-1}^{(n)} = (-1)^{m-(i-1)} i \frac{m!}{i!(m-i)!} \cdot \frac{1}{m-i+1} n^{m-i+1} + \text{lower order terms} \]
+		\[ = (-1)^{m-(i-1)} \binom{m}{i-1} n^{m-(i-1)} + \text{lower order terms}\]
 	which is what we wanted.
 \end{proof}
 
