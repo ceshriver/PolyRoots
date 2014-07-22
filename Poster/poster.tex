@@ -102,24 +102,35 @@
 \newcommand{\drawvideo}[3]{% [0 0.25 0.5 0.75 1 1.25 1.5]
    \noindent\pgfmathsetlength{\FSZ}{\linewidth/#2}
    \begin{tikzpicture}[outer sep=0pt,inner sep=0pt,x=\FSZ,y=\FSZ]
+<<<<<<< HEAD
    \draw[color=lightblue!50!black] (0,0) node[outer sep=0pt,inner sep=0pt,text width=\linewidth,minimum height=0] (video) {\noindent#3};
    \path [fill=lightblue!50!black,line width=0pt]
      (video.north west) rectangle ([yshift=\FSZ] video.north east)
+=======
+   \draw[color=lightblue] (0,0) node[outer sep=0pt,inner sep=0pt,text width=\linewidth,minimum height=0] (video) {\noindent#3};
+   \path [fill=lightblue,line width=0pt] 
+     (video.north west) rectangle ([yshift=\FSZ] video.north east) 
+>>>>>>> origin/master
     \foreach \x in {1,2,...,#2} {
       {[rounded corners=0.6] ($(video.north west)+(-0.7,0.8)+(\x,0)$) rectangle +(0.4,-0.6)}
     }
 ;
+<<<<<<< HEAD
    \path [fill=lightblue!50!black,line width=0pt]
      ([yshift=-1\FSZ] video.south west) rectangle (video.south east)
+=======
+   \path [fill=lightblue,line width=0pt] 
+     ([yshift=-1\FSZ] video.south west) rectangle (video.south east) 
+>>>>>>> origin/master
     \foreach \x in {1,2,...,#2} {
       {[rounded corners=0.6] ($(video.south west)+(-0.7,-0.2)+(\x,0)$) rectangle +(0.4,-0.6)}
     }
 ;
    \foreach \x in {1,...,#1} {
-     \draw[color=lightblue!50!black] ([xshift=\x\linewidth/#1] video.north west) -- ([xshift=\x\linewidth/#1] video.south west);
+     \draw[color=lightblue] ([xshift=\x\linewidth/#1] video.north west) -- ([xshift=\x\linewidth/#1] video.south west);
    }
    \foreach \x in {0,#1} {
-     \draw[color=lightblue!50!black] ([xshift=\x\linewidth/#1,yshift=1\FSZ] video.north west) -- ([xshift=\x\linewidth/#1,yshift=-1\FSZ] video.south west);
+     \draw[color=lightblue] ([xshift=\x\linewidth/#1,yshift=1\FSZ] video.north west) -- ([xshift=\x\linewidth/#1,yshift=-1\FSZ] video.south west);
    }
    \end{tikzpicture}
 }
@@ -138,20 +149,20 @@
   bgColorOne=white,
   bgColorTwo=white,
   borderColor=black,
-  headerColorOne=black,
-  headerColorTwo=lightblue,
+  headerColorOne=lightblue,
+  headerColorTwo=blue,
   headerFontColor=white,
   boxColorOne=white,
   boxColorTwo=lightblue,
   % Format of textbox
-  textborder=roundedleft,
+  textborder=rectangle,
   % Format of text header
   eyecatcher=true,
-  headerborder=closed,
+  headerborder=open,
   headerheight=0.1\textheight,
 %  textfont=\sc, An example of changing the text font
   headershape=roundedright,
-  headershade=shadelr,
+  headershade=plain,
   headerfont=\Large\bf\textsc, %Sans Serif
   textfont={\setlength{\parindent}{1.5em}},
   boxshade=plain,
@@ -162,9 +173,9 @@
   % Eye Catcher
     %{\includegraphics[height=8em][bb=0 0 360 360]{images/yale}}
   % Title
-  {\bf\textsc{Poster Title}\vspace{0.5em}}
+  {\bf\textsc{Properties of Some Real Stability Preservers}\vspace{0.5em}}
   % Authors
-  {\textsc{ Student Names\\ Advised by:}}
+  {\textsc{ Stanislav Atanasov and Christopher Shriver\\ Advised by: Anup Rao}}
   % University logo
   {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
 
@@ -202,6 +213,7 @@ Some background information.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+<<<<<<< HEAD
 %FIRST MULTICOLUMN
 \headerbox{Introduction to making a poster}{name=TL,column=0,span=2,below=BG}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -222,34 +234,49 @@ Our first main result is an existence result.
 \begin{theorem}
 There exist at most finitely many good posters.
 \end{theorem}
+=======
+%FIRST MULTICOLUMN  
+\headerbox{The $1-D$ Operator}{name=TL,column=0,span=2,below=BG}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{multicols}{2}
+\large
+\noindent The $1-D$ operator, where $D=\frac{d}{dx}$, is a linear map on the set of real-rooted polynomials. It was of particular interest in a recent paper solving the Kadison-Singer conjecture, in part because of its relation to the Laguerre polynomials. We focus primarily on its effect on the differences between the roots of a polynomial.
 
+\end{multicols}
+}
+>>>>>>> origin/master
 
+\headerbox{Intuitive Picture}{name=TC,column=0,span=2,below=TL}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{multicols}{2}
+\large
+\noindent Given a polynomial $f$, the roots of ${(1-D)f}$ can be understood as the points of equilibrium in a system of forces resulting from placing a unit charge at each of the roots of $f$ and introducing a constant gravitational force in the $-x$ direction. This is shown in the figure below.
+\begin{center}
+\includegraphics[width=0.9\columnwidth]{images/charges}
+\end{center}
+The blue line represents the force at $x$ due to only the blue roots, the red line shows the force due to the red root, and the purple line shows their sum. The red arrow shows where the red root repels the old solutions.
+
+This model makes it easy to see the effects of changing the roots of a polynomial, which can be very useful for bounding various quantities. The intuition provided can often be formalized into a more rigorous argument, as was done for Theorem~\ref{thm:rootgaps} below.
 \end{multicols}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{My Generation}{name=BL,column=0,row=3,span=2,below=TL}{
+\headerbox{Main Results}{name=BL,column=0,row=3,span=2,below=TC}{
 \begin{multicols}{2}
 \large
-People try to put us d-down (Talkin' 'bout my generation)\\
-Just because we get around (Talkin' 'bout my generation)\\
-Things they do look awful c-c-cold (Talkin' 'bout my generation)\\
-I hope I die before I get old (Talkin' 'bout my generation)\\
-\bigskip
+\noindent Our main result for this operator is
+\begin{theorem}
+\label{thm:rootgaps}
+	For any real-rooted polynomial $f$, the difference between any two roots of ${(1-D)^n f}$ approaches infinity as $n$ approaches infinity.
+\end{theorem}
+Interestingly, however, in a more relative sense the roots tend to be close together:
 
-This is my generation\\
-This is my generation, baby\\
-\bigskip
+\begin{theorem}
+\label{thm:rootratio}
+	For any polynomial $f$, the ratio of any two roots of ${(1-D)^n f}$ approaches $1$ as $n$ approaches infinity.
+\end{theorem}
 
-Why don't you all f-fade away (Talkin' 'bout my generation)\\
-And don't try to dig what we all s-s-say (Talkin' 'bout my generation)\\
-I'm not trying to cause a big s-s-sensation (Talkin' 'bout my generation)\\
-I'm just talkin' 'bout my g-g-g-generation (Talkin' 'bout my generation)\\
-\bigskip
-
-This is my generation\\
-This is my generation, baby\\
 
 \end{multicols}
 }
