@@ -23,6 +23,9 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{definition}[theorem]{Definition}
 
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\e}{\varepsilon}
+
 
 \begin{document}
 \begin{center}
@@ -91,6 +94,7 @@ In the previous section, we concluded that the average gap increases without bou
 \proof Chris, please add it.
 \qed
 
+\begin{comment}
 \begin{lemma}
 Suppose $f_0(x)$ is a real-rooted polynomial with distinct roots $\lambda_1 < \lambda_2 < \cdots <\lambda_{n}$ such that $\lim_{m\to\infty} |\lambda_{i+1}[(1-D)^m f_0] - \lambda_{i}[(1-D)^m f_0]| =~\infty$ for every $ 1\leq i \leq n-1$. Suppose further $p_0(x)$ is a real polynomial having distinct roots $\mu_1 < \eta <\mu_2 < \cdots < \mu_{n-1},$ i.e., $p_0(x) = (x-\eta)f_0(x).$ Then we also have that
 \[\lim_{n\to\infty} |\mu_{i+1}[(1-D)^m p_0] - \mu_{i}[(1-D)^m p_0]\big|=\infty,~\]
@@ -98,15 +102,16 @@ for every $1\leq i \leq n-1.$
 
 \end{lemma}
 \proof
-We first show that 
+We first show that
 \[|\mu_{2}[(1-D)^m p_0] - \mu_{1}[(1-D)^m p_0]| \geq |\lambda_{2}[(1-D)^m f_0] - \lambda_{1}[(1-D)^m f_0]|,~\forall m\in\mathbb{N}.\]
 
 
 Let $\varepsilon > 0$. Now since $\lim_{m\to\infty} |\lambda_{2}[(1-D)^m f_0] - \lambda_{1}[(1-D)^m f_0]| = \infty$, there exist $M\in\mathbb{N}$ such that $|\mu_{2}[(1-D)^m p_0] - \mu_{1}[(1-D)^m p_0]| \geq \frac{1}{\varepsilon},~\forall m\geq M$. Pick $\delta > 0$ The roots of $(1-D)^{m+1} p_0$ satisfy
 \[\sum_1^n \frac{1}{x-\mu^{(m)}_i} < \varepsilon \]
-
-
 \qed
+
+\end{comment}
+
 
 \begin{lemma}
 \label{minimal gap shall approach}
@@ -120,7 +125,6 @@ We only need to show the first bound since the second one can be proven analogou
 \[\sum^{i-1}_{k=1} \frac{1}{x-\lambda^{(n)}_k} + \frac{1}{x-\lambda^{(n)}_i} + \frac{1}{x-\lambda^{(n)}_{i+1}} + \sum^n_{k = i+2} \frac{1}{x-\lambda^{(n)}_k} < \frac{i-1}{L}+\frac{1}{x-\lambda^{(n)}_i} + \frac{1}{x-\lambda^{(n)}_{i+1}}.\]
 However, the inequality $L > m,$ implies $\frac{i-1}{L}<1$ and thus all roots of $\frac{i-1}{L}+\frac{1}{x-\lambda^{(n)}_i} + \frac{1}{x-\lambda^{(n)}_{i+1}} = 1$ are to the right of $\lambda^{(n)}_i$, or, more precisely, there is one root in each of the intervals $(\lambda^{(n)}_i,\lambda^{(n)}_{i+1})$ and $(\lambda^{(n)}_{i+1},+\infty)$. Now the claim follow since $\frac{1}{x-\lambda^{(n)}_i} + \frac{1}{x-\lambda^{(n)}_{i+1}}$ is monotonically decreasing in $(\lambda^{(n)}_i,\lambda^{(n)}_{i+1})$.
 \qed
-
 Now we have all the tools necessary for proving
 
 \begin{proposition}
@@ -140,6 +144,66 @@ Pick arbitrarily large number $L\in\mathbb{R}$ and some $\varepsilon > 0$. Then 
 This means that we are in the conditions of Lemma~\ref{minimal gap shall approach}, which gives us a lower bound of the $d_{j_{n+1}}$ for every $n\geq M$. However, note that if $L$ is big enough, the quantities $\frac{i-1}{L}$ and $\frac{n-(i+1)}{L}$ from Lemma~\ref{minimal gap shall approach} become negligibly small. Therefore, by continuity, for every $\delta > 0$, there is $M$ such that the corresponding $L$ is big enough such that the roots $\lambda^{(n+1)}_{j_n}$ and $\lambda^{(n+1)}_{j_n}$ are both within $\frac{\delta}{2}$ of the roots $\mu^{(n)}_1,~\mu^{(n)}_2$ of $\frac{1}{x-\lambda^{(n)}_{j_n}} + \frac{1}{x-\lambda^{(n)}_{j_n+1}} = 1,~\forall n\geq M$. In particular, $|\lambda^{(n+1)}_{j_n+1} - \lambda^{(n+1)}_{j_n}|>|\mu^{(n)}_1 - \mu^{(n)}_2| - \delta,~\forall n\geq M$.
 
 Recall that $|\mu^{(n)}_1 - \mu^{(n)}_2|= \sqrt{|\lambda^{(n)}_{j_n+1} - \lambda^{(n)}_{j_n}|^2 + 4}$. Now, since $\varepsilon > 0$ was picked arbitrarily, we might assume it is small enough to supply that $\sqrt{|\lambda^{(n)}_{j_n+1} - \lambda^{(n)}_{j_n}|^2 + 4} >l + \frac{\sqrt{l^2 -4} - l}{2}$ for all $n\ge M$ and so $|\mu^{(n)}_1 - \mu^{(n)}_2|\ge \frac{\sqrt{l^2 -4} - l}{2}$ for all $n\ge M$. Now, the choice of $\delta$ was independent of $\varepsilon$, so we pick $0< \delta <\frac{\sqrt{l^2 -4} - l}{2}$. This evidently leads to a contradiction with $l = \sup_{n\ge 0} (\min_{i \in [m]} d_i (f_n))$. Hence, the assumption that the limit $l$ is finite is wrong and thus $\lim_{n\to\infty} \min_{i \in [m]} d_i (f_n) = \infty$, as desired. \qed
+
+\subsection{Some additions/comments}
+\subsubsection{The lemma everyone keeps asking about}
+First, another lemma that I think can be useful elsewhere as well:
+\begin{lemma}
+	Suppose $f$ is a polynomial whose $i$th smallest root $\mu_i$ is moved (necessarily to the right) a distance $\delta$ by the $(1-D)$ operator. Given $\mu \in \R$, consider the polynomial $\tilde{f} = (x-\mu)f$. Then
+	\begin{enumerate}
+		\item if $\mu \leq \mu_i$, then $\lambda_{i+1}\big[(1-D)\tilde{f}\big] \geq \mu_i + \delta$ (note that since a root has been added to the left, the $(i+1)$th root of $\tilde{f}$ is the root which intuitively corresponds to the $i$th root of $f$), and
+		\item if $\mu > \mu_i$, then $\lambda_{i}\big[(1-D)\tilde{f}\big] \leq \mu_i + \delta$.
+	\end{enumerate}
+	Loosely speaking, the added root has the effect of `repelling' the old roots of $(1-D)f$.
+\end{lemma}
+\begin{proof}
+	First consider the second case, $\mu > \mu_i$. If $\mu \leq \mu_i + \delta$, then the result follows immediately from interlacing. \\
+	If instead $\mu > \mu_i + \delta$, we can use the logarithmic derivative to get the bound we want. If $\delta=0$ then $\mu_i$ is a root of multiplicity and adding the root $\mu$ will not change how much it moves. Assume instead then that $\delta>0$. Then $\mu_i+\delta$ is a root of $\frac{f^\prime}{f}$, i.e.
+		\[ \sum_{j=1}^n \frac{1}{(\mu_i+\delta)-\mu_j} = 1. \]
+	We would like to find the root of $(1-D)\tilde{f}$, that is the solution of
+		\[ \sum_{j=1}^n \frac{1}{x-\mu_j} + \frac{1}{x-\mu} = 1, \]
+	that is closest to the right of $\mu_i$. We know that for $x=\mu_i+\delta$ the sum is equal to 1 and the second term is negative, so the left hand side is less than 1. It is also apparent that the sum is much greater than 1 for $x$ just to the right of $\mu_i$, and continuous for $x \in (\mu_i, \mu_i+\delta)$. Therefore by the intermediate value theorem there is a solution in $(\mu_i, \mu_i+\delta)$ and the result immediately follows. \\
+	The proof for $\mu<\mu_i$ is essentially the same.
+\end{proof}
+
+The following lemma easily follows:
+
+\begin{lemma}
+	Appending a root between two (not necessarily adjacent) roots increases the change in their difference upon applying $1-D$.
+\end{lemma}
+For example, if the gap between the roots of $(x-1)(x-3)$ changes by $\delta$, then the gap between the outer two roots of $(x-1)(x-2)(x-3)$ will change by more than $\delta$.
+
+We already know that the gap between the largest and smallest roots is nondecreasing. The previous lemma can be used to show that it approaches infinity:
+
+\begin{lemma}
+	For any polynomial $f$,
+	 \[ \lim_{n\to\infty} \lambda_{\max}\big[(1-D)^n f\big]-\lambda_{\min}\big[(1-D)^n f\big] = \infty. \]
+\end{lemma}
+\begin{proof}
+	Because the quantity of interest is nondecreasing, it is enough to show that it has no finite limit. Suppose it did approach some number $l < \infty$. Then there is some number of iterations of $1-D$ after which the difference between the maximum and minimum roots is arbitrarily close to $l$. Suppose a polynomial with only two roots separated by $l$ has its gap increased by $\delta$. Then if the two roots are closer than $l$ and more roots are appended in between, the gap will still increase by at least $\delta$. Therefore if the gap between extremal roots is at least $l - \delta/2$, then after applying $1-D$ it will be at least $l + \delta/2$. This is a contradiction, so it must be that the gap is unbouded.
+\end{proof}
+
+Now we only need one more lemma, after which the theorem will follow by induction. First a definition: by `$n$-gap' we mean a gap between two roots that have $n-1$ other roots between them. For example $\mu_4-\mu_1$ is a 3-gap, and the difference between the minimum and maximum roots of a degree $m$ polynomial is an $(m-1)$-gap. Now the lemma:
+
+\begin{lemma}
+	Suppose the $n$-gaps of a given polynomial approach infinity. Then the $n-1$ gaps do as well.
+\end{lemma}
+\begin{proof}
+	Suppose the $(n-1)$-gaps of a polynomial $f$ of degree $m$ do \emph{not} approach infinity. Then the $\liminf$ of the smallest $(n-1)$-gap is finite, say $l$. We can write this as
+		\[ \liminf_{i\to\infty} G_{n-1}\big[(1-D)^i f\big] = l \]
+	where $G_n[f]$ is the size of the smallest $n$-gap of $f$. Choose $\e$ so that two (isolated) roots with separation less than $l+\e$ will have their separation increased by at least $3\e$. Choose $L$ large enough that
+	\begin{enumerate}
+		\item If an $(n-1)$-gap is at most $l+m+\e$ wide, and all roots outside the gap are at least $L$ away, then the size of the gap increases; and
+		\item If an $(n-1)$-gap is at most $l+\e$ wide, and all roots outside the gap are at least $L$ away, then the outside roots' effect on the change in gap size is at most $\e$.
+	\end{enumerate}
+	By the assumption that the $n$-gaps approach infinity, there exists $N$ so that for all $i>N$
+		\[ G_n\big[(1-D)^i f\big] > L + l + m + \e. \]
+	By the assumption that the $\liminf$ of the smallest $(n-1)$-gap is $l$, there exist arbitrarily large $j$ such that
+		\[ l-\e < G_{n-1}\big[ (1-D)^j f\big] < l+\e. \]
+	Choose such a $j$ which is greater than $N$. Due to the choice of $\e$ and $N$, we then have
+		\[ G_{n-1}\big[ (1-D)^{j+1} f\big] > l+\e. \]
+	For all further iterations, we have that an $(n-1)$-gap either increases, or if it is larger than $l+m+\e$, it may decrease. However, it may only decrease by at most $m$. Therefore the size of an $(n-1)$-gap will never drop below $l+\e$, contradicting that $l$ is the $\liminf$. It must then be that the $\liminf$ is infinite, so the size of the smallest $(n-1)$-gap approaches infinity.
+\end{proof}
 
 \begin{thebibliography}{1}
 

@@ -8,4 +8,5 @@
 *.bak
 *.sav
 *.synctex.gz
+*.swp
 .DS_Store
