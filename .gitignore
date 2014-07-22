@@ -10,3 +10,4 @@
 *.synctex.gz
 *.swp
 .DS_Store
+*.m~

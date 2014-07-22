@@ -16,6 +16,7 @@
 \DeclareMathOperator{\roots}{roots}
 \DeclareMathOperator{\AG}{AG}
 \DeclareMathOperator{\G}{G}
+\DeclareMathOperator{\avg}{avg}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -146,7 +147,6 @@ This means that we are in the conditions of Lemma~\ref{minimal gap shall approac
 Recall that $|\mu^{(n)}_1 - \mu^{(n)}_2|= \sqrt{|\lambda^{(n)}_{j_n+1} - \lambda^{(n)}_{j_n}|^2 + 4}$. Now, since $\varepsilon > 0$ was picked arbitrarily, we might assume it is small enough to supply that $\sqrt{|\lambda^{(n)}_{j_n+1} - \lambda^{(n)}_{j_n}|^2 + 4} >l + \frac{\sqrt{l^2 -4} - l}{2}$ for all $n\ge M$ and so $|\mu^{(n)}_1 - \mu^{(n)}_2|\ge \frac{\sqrt{l^2 -4} - l}{2}$ for all $n\ge M$. Now, the choice of $\delta$ was independent of $\varepsilon$, so we pick $0< \delta <\frac{\sqrt{l^2 -4} - l}{2}$. This evidently leads to a contradiction with $l = \sup_{n\ge 0} (\min_{i \in [m]} d_i (f_n))$. Hence, the assumption that the limit $l$ is finite is wrong and thus $\lim_{n\to\infty} \min_{i \in [m]} d_i (f_n) = \infty$, as desired. \qed
 
 \subsection{Some additions/comments}
-\subsubsection{The lemma everyone keeps asking about}
 First, another lemma that I think can be useful elsewhere as well:
 \begin{lemma}
 	Suppose $f$ is a polynomial whose $i$th smallest root $\mu_i$ is moved (necessarily to the right) a distance $\delta$ by the $(1-D)$ operator. Given $\mu \in \R$, consider the polynomial $\tilde{f} = (x-\mu)f$. Then
@@ -176,6 +176,7 @@ For example, if the gap between the roots of $(x-1)(x-3)$ changes by $\delta$, t
 We already know that the gap between the largest and smallest roots is nondecreasing. The previous lemma can be used to show that it approaches infinity:
 
 \begin{lemma}
+\label{lem:maxgapinf}
 	For any polynomial $f$,
 	 \[ \lim_{n\to\infty} \lambda_{\max}\big[(1-D)^n f\big]-\lambda_{\min}\big[(1-D)^n f\big] = \infty. \]
 \end{lemma}
@@ -186,6 +187,7 @@ We already know that the gap between the largest and smallest roots is nondecrea
 Now we only need one more lemma, after which the theorem will follow by induction. First a definition: by `$n$-gap' we mean a gap between two roots that have $n-1$ other roots between them. For example $\mu_4-\mu_1$ is a 3-gap, and the difference between the minimum and maximum roots of a degree $m$ polynomial is an $(m-1)$-gap. Now the lemma:
 
 \begin{lemma}
+\label{lem:gapinduction}
 	Suppose the $n$-gaps of a given polynomial approach infinity. Then the $n-1$ gaps do as well.
 \end{lemma}
 \begin{proof}
@@ -205,6 +207,7 @@ Now we only need one more lemma, after which the theorem will follow by inductio
 	For all further iterations, we have that an $(n-1)$-gap either increases, or if it is larger than $l+m+\e$, it may decrease. However, it may only decrease by at most $m$. Therefore the size of an $(n-1)$-gap will never drop below $l+\e$, contradicting that $l$ is the $\liminf$. It must then be that the $\liminf$ is infinite, so the size of the smallest $(n-1)$-gap approaches infinity.
 \end{proof}
 
+<<<<<<< HEAD:avg_gap.tex
 \begin{thebibliography}{1}
 
   \bibitem{Borcea1} J. Borcea, and P. Branden {\em The Lee-Yang and Polya-Schur programs. I. Linear operators preserving stability.} Invent. Math. 177, pp. 541-569, 2009.
@@ -212,6 +215,56 @@ Now we only need one more lemma, after which the theorem will follow by inductio
  \bibitem{Borcea2} J. Borcea, and P. Branden {\em The Lee-Yang and Polya-Schur programs. II. Theory of stable polynomials and applications} Comm. Pure Appl. Math. 62, pp. 1595-1631, 2009.
 
    \bibitem{Spielman} A. Marcus, D. Spielman, and N. Srivastava. {\em Ramanujan graphs and the solution of the Kadison-Singer problem.} Proceedings of ICM, Seoul, 2014.
+=======
+Lemmas \ref{lem:maxgapinf} and \ref{lem:gapinduction} together immediately give
+\begin{theorem}
+	If $f$ is any polynomial, the difference between any pair of roots of $(1-D)^n f$ approaches infinity as $n$ approaches infinity.
+\end{theorem}
+
+However, in a sense the roots tend to converge on their average, as given by the following theorem.
+\begin{theorem}
+	If $f$ is any polynomial, then for any $i$ the ratio of the $i$th root of $(1-D)^nf$ to the average root approaches $1$ as $n$ approaches infinity.
+\end{theorem}
+\begin{proof}
+	Because the coefficients of a polynomial are the symmetric polynomials in its roots, given $f(x)=\sum a_i x^i$ with roots $\mu_1,\cdots,\mu_m$ and average root $\mu_{\avg}$ it follows that the polynomial
+		\[ \sum_{i=0}^m \frac{a_i}{\mu_{\avg}^{m-i}}x^i \]
+	has roots $\mu_i/\mu_{\avg}$. Therefore we want to show that as $n$ approaches infinity, the polynomial obtained by dividing the $i$th coefficient of $(1-D)^n f$ by the $(m-i)$th power of its average root approaches $(x-1)^m$.
+	
+	$1-D$ always increases the average root by 1, so
+		\[ \mu_{\avg}^{(n)} = \mu_{\avg}+n. \]
+	We now just need to calculate the coefficients $a_i^{(n)}$. It will ease the calculations if we first notice that the coefficients do not need to be calculated exactly: since the denominator will be degree $m-i$ in $n$ we only need to keep track of terms that are at least that big. We may also assume that $f$ is monic.
+	
+	Using these simplifying observations we will prove by induction on $i$ that
+		\[ a_{i}^{(n)} = (-1)^{m-i}\binom{m}{i}n^{m-i} + \text{lower order terms,} \]
+	so that the result will immediately follow.
+	
+	For $i=m$, the equation is trivial because we have assumed $f$ is monic:
+		\[ a_m^{(n)} = 1. \]
+	This provides the base case for our induction.
+	
+	Now suppose the equation holds for some $i$; we will show it also holds for $i-1$. We have
+		\[ a_{i-1}^{(n)} = a_{i-1}^{(n-1)} - i a_i^{(n-1)} \]
+	which by the inductive assumption is equal to
+		\[ a_{i-1}^{(n-1)} - i (-1)^{m-i}\binom{m}{i}n^{m-i} + \text{lower order terms}. \]
+	Repeating this $n-1$ times gives that
+		\[ a_{i-1}^{(n)} = a_{i-1} - \sum_{j=1}^n i (-1)^{m-i} \binom{m}{i} j^{m-i} + \text{lower order terms} \]
+		\[ = i (-1)^{m-i+1} \binom{m}{i} \sum_{j=1}^n j^{m-i} + \text{lower order terms.} \]
+	The exact formula for this sum is
+		\[ \sum_{j=1}^n j^{m-i} = \frac{1}{m-i+1}\sum_{k=0}^{m-i} \binom{m-i+1}{k}B_k n^{m-i+1-k} \]
+	but again we are only interested in the largest degree term, where $k=0$:
+		\[ \frac{1}{m-i+1}n^{m-i+1}. \]
+	Therefore we now have
+		\[ a_{i-1}^{(n)} = (-1)^{m-(i-1)} i \frac{m!}{i!(m-i)!} \cdot \frac{1}{m-i+1} n^{m-i+1} + \text{lower order terms} \]
+		\[ = (-1)^{m-(i-1)} \binom{m}{i-1} n^{m-(i-1)} + \text{lower order terms}\]
+	which is what we wanted.
+\end{proof}
+
+\begin{thebibliography}{9}
+\bibitem{diffspacing}
+ Farmer, D.W. and Rhoades, R.C.
+ \emph{Differentiation Evens out Zero Spacings}.
+ arXiv:math/0310252.
+>>>>>>> 74a220226a417bd1e702cd1569f67546e2ac5b4b:avg_gap/avg_gap.tex
 
    \bibitem{Fisk} S. Fisk. {\em Polynomials, roots, and interlacing.} available at \url{http://arxiv.org/abs/math/0612833}, 2008.
   \end{thebibliography}
