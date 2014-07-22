@@ -192,9 +192,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   
-  
+%BACKGROUND SECTION
+\headerbox{Background}{name=BG,column=0,row=0,span=4}{
+\begin{multicols}{2}
+\large
+Some background information.
+\end{multicols}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %FIRST MULTICOLUMN  
-\headerbox{Introduction to making a poster}{name=TL,column=0,row=0,span=2}{
+\headerbox{Introduction to making a poster}{name=TL,column=0,span=2,below=BG}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{multicols}{2}
 \large
@@ -222,7 +231,7 @@ There exist at most finitely many good posters.
    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
-    \headerbox{Properties of a good poster}{name=TR,column=2,span=3, bottomaligned=TL}{
+    \headerbox{Properties of a good poster}{name=TR,row=1,column=2,span=2, below=BG}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{multicols}{2}
 \large
@@ -292,7 +301,7 @@ Moreover, after subdividing the edges of $G$, the inequality remains strict, thu
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{My Generation}{name=BL,column=0,row=3,span=2,below=TL,bottomaligned=BR}{
+\headerbox{My Generation}{name=BL,column=0,row=3,span=2,below=TL}{
 \begin{multicols}{2}
 \large
 People try to put us d-down (Talkin' 'bout my generation)\\
