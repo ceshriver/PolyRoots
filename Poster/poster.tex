@@ -1,0 +1,331 @@
+\documentclass[landscape,final,a0paper,fontscale=0.26]{baposter}
+
+\usepackage[english]{babel}
+\usepackage{amsthm}
+
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{bm}
+\usepackage{url}
+\usepackage{tikz} 
+\usetikzlibrary{calc}
+
+%Useful Theorem Environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{warning}[theorem]{Warning}
+\newtheorem{questions}{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{assumption}{Assumption}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{quasi-theorem}[theorem]{Quasi-Theorem}
+
+\newtheorem{rem1}[theorem]{Remark}
+\newenvironment{remark}{\begin{rem1}\em}{\end{rem1}}
+
+\newtheorem{not1}[theorem]{Notation}
+\newenvironment{notation}{\begin{not1}\em}{\end{not1}}
+
+\usepackage{mathptmx} %make math font slightly better
+
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{palatino}
+
+\newcommand{\captionfont}{\footnotesize}
+
+\graphicspath{{images/}{../images/}}
+\usetikzlibrary{calc}
+
+\newcommand{\SET}[1]  {\ensuremath{\mathcal{#1}}}
+\newcommand{\MAT}[1]  {\ensuremath{\boldsymbol{#1}}}
+\newcommand{\VEC}[1]  {\ensuremath{\boldsymbol{#1}}}
+\newcommand{\Video}{\SET{V}}
+\newcommand{\video}{\VEC{f}}
+\newcommand{\track}{x}
+\newcommand{\Track}{\SET T}
+\newcommand{\LMs}{\SET L}
+\newcommand{\lm}{l}
+\newcommand{\PosE}{\SET P}
+\newcommand{\posE}{\VEC p}
+\newcommand{\negE}{\VEC n}
+\newcommand{\NegE}{\SET N}
+\newcommand{\Occluded}{\SET O}
+\newcommand{\occluded}{o}
+
+\renewcommand{\rmdefault}{ptm} %change all font to Times
+\usepackage[english]{babel}
+
+%\rmfamily
+
+
+\setlength{\columnsep}{1.5em}
+\setlength{\columnseprule}{0mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Save space in lists. Use this after the opening of the list
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\compresslist}{%
+\setlength{\itemsep}{1pt}%
+\setlength{\parskip}{0pt}%
+\setlength{\parsep}{0pt}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin of Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Here starts the poster
+%%%---------------------------------------------------------------------------
+%%% Format it to your taste with the options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define some colors
+
+%\definecolor{lightblue}{cmyk}{0.83,0.24,0,0.12}
+%\definecolor{lightblue}{rgb}{0.145,0.6666,1}
+\definecolor{lightblue}{rgb}{0.115,0.7266,0.7}
+
+% Draw a video
+\newlength{\FSZ}
+\newcommand{\drawvideo}[3]{% [0 0.25 0.5 0.75 1 1.25 1.5]
+   \noindent\pgfmathsetlength{\FSZ}{\linewidth/#2}
+   \begin{tikzpicture}[outer sep=0pt,inner sep=0pt,x=\FSZ,y=\FSZ]
+   \draw[color=lightblue!50!black] (0,0) node[outer sep=0pt,inner sep=0pt,text width=\linewidth,minimum height=0] (video) {\noindent#3};
+   \path [fill=lightblue!50!black,line width=0pt] 
+     (video.north west) rectangle ([yshift=\FSZ] video.north east) 
+    \foreach \x in {1,2,...,#2} {
+      {[rounded corners=0.6] ($(video.north west)+(-0.7,0.8)+(\x,0)$) rectangle +(0.4,-0.6)}
+    }
+;
+   \path [fill=lightblue!50!black,line width=0pt] 
+     ([yshift=-1\FSZ] video.south west) rectangle (video.south east) 
+    \foreach \x in {1,2,...,#2} {
+      {[rounded corners=0.6] ($(video.south west)+(-0.7,-0.2)+(\x,0)$) rectangle +(0.4,-0.6)}
+    }
+;
+   \foreach \x in {1,...,#1} {
+     \draw[color=lightblue!50!black] ([xshift=\x\linewidth/#1] video.north west) -- ([xshift=\x\linewidth/#1] video.south west);
+   }
+   \foreach \x in {0,#1} {
+     \draw[color=lightblue!50!black] ([xshift=\x\linewidth/#1,yshift=1\FSZ] video.north west) -- ([xshift=\x\linewidth/#1,yshift=-1\FSZ] video.south west);
+   }
+   \end{tikzpicture}
+}
+
+\hyphenation{resolution occlusions}
+%%
+\begin{poster}%
+  % Poster Options
+  {
+  % Show grid to help with alignment
+  grid=false,
+  % Column spacing
+  colspacing=1em,
+  columns=4,
+  % Color style
+  bgColorOne=white,
+  bgColorTwo=white,
+  borderColor=black,
+  headerColorOne=black,
+  headerColorTwo=lightblue,
+  headerFontColor=white,
+  boxColorOne=white,
+  boxColorTwo=lightblue,
+  % Format of textbox
+  textborder=roundedleft,
+  % Format of text header
+  eyecatcher=true,
+  headerborder=closed,
+  headerheight=0.1\textheight,
+%  textfont=\sc, An example of changing the text font
+  headershape=roundedright,
+  headershade=shadelr,
+  headerfont=\Large\bf\textsc, %Sans Serif
+  textfont={\setlength{\parindent}{1.5em}},
+  boxshade=plain,
+%  background=shade-tb,
+  background=plain,
+  linewidth=2pt
+  }
+  % Eye Catcher
+    {\includegraphics[height=8em]{images/Yale}} 
+  % Title
+  {\bf\textsc{Poster Title}\vspace{0.5em}}
+  % Authors
+  {\textsc{ Student Names\\ Advised by:}}
+  % University logo
+  {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
+
+\setlength{\fboxsep}{0pt}%
+\setlength{\fboxrule}{3pt}%
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Now define the boxes that make up the poster
+%%%---------------------------------------------------------------------------
+%%% Each box has a name and can be placed absolutely or relatively.
+%%% The only inconvenience is that you can only specify a relative position 
+%%% towards an already declared box. So if you have a box attached to the 
+%%% bottom, one to the top and a third one which should be in between, you 
+%%% have to specify the top and bottom boxes before you specify the middle 
+%%% box.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % A coloured circle useful as a bullet with an adjustably strong filling
+    \newcommand{\colouredcircle}{%
+      \tikz{\useasboundingbox (-0.2em,-0.32em) rectangle(0.2em,0.32em); \draw[draw=black,fill=lightblue,line width=0.03em] (0,0) circle(0.18em);}}
+
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+  
+%FIRST MULTICOLUMN  
+\headerbox{Introduction to making a poster}{name=TL,column=0,row=0,span=2}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{multicols}{2}
+\large
+\noindent \newtheorem *{question}{Question}
+\begin  {question} 
+The motivating question for my project is: ``can I make a good poster?"
+\end {question}
+
+\noindent A poster should not contain too much text -- this is not a good place for your proofs, and pseudocode, it is a gadget that has just enough to point at so you can effectively and crisply explain the essence of your ideas: the problem, some examples, perhaps counterexamples, an approach to a solution, good illustrations.
+
+\begin{definition}
+A poster $P$ is said to be \textit{good} if it satisfies all the properties of being good, and is a poster. 
+\end{definition}
+
+Our first main result is an existence result.
+\begin{theorem}
+There exist at most finitely many good posters. 
+\end{theorem}
+
+
+\end{multicols}
+}
+
+%END OF THIS MULTICOLUMN
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+    \headerbox{Properties of a good poster}{name=TR,column=2,span=3, bottomaligned=TL}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{multicols}{2}
+\large
+\noindent
+The best posters contain large amounts of mathematical content. This may include equations such as
+\[
+\langle \gamma_1,\gamma_2 \rangle^X_{g,\beta} = \int_{M^{vir}} ev_1^\star(\gamma_1)ev_2^\star(\gamma_2). 
+\]
+
+\end{multicols}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{My favorite posters...}{name=BR,column=2,row=3,span=2,below=TR}{
+\begin{multicols}{2}
+\noindent 
+\large
+
+\noindent ...include some pictures for me to look at intelligently, while I pretend to understand the, 
+
+\newtheorem *{Counter}{Theorem}
+\begin{Counter}
+Let $G$ be the graph depicted below,\\
+%\begin{figure}[h!] 
+\tikzset{me/.style={to path={
+\pgfextra{% 
+ \pgfmathsetmacro{\startf}{-(#1-1)/2}  
+ \pgfmathsetmacro{\endf}{-\startf} 
+ \pgfmathsetmacro{\stepf}{\startf+1}}
+ \ifnum 1=#1 -- (\tikztotarget)  \else
+     let \p{mid}=($(\tikztostart)!0.5!(\tikztotarget)$) 
+         in
+\foreach \i in {\startf,\stepf,...,\endf}
+    {%
+     (\tikztostart) .. controls ($ (\p{mid})!\i*6pt!90:(\tikztotarget) $) .. (\tikztotarget)
+      }
+      \fi   
+     \tikztonodes
+}}}   
+
+\begin{tikzpicture}[scale=.7]
+\node at (0,0.5) {$v_1$};
+\node at (3,0.5) {$v_3$};
+\node at (6,0.5) {$v_2$};
+\node[circle,fill=black,inner sep=1.5pt,draw] (a) at (0,0) {};
+\node[circle,fill=black,inner sep=1.5pt,draw] (b) at (3,0) {};
+\node[circle,fill=black,inner sep=1.5pt,draw] (c) at (6,0) {};
+
+\draw (a) edge[me=3] (b); 
+\draw (c) edge[me=7] (b); 
+
+\end{tikzpicture}   
+%\end{figure}
+
+\noindent and let $\underline{d} = 1\cdot v_1+2\cdot v_2+3\cdot v_3$. Then
+$$r^{alg}(G,\underline{d}) < r_G(\underline{d})\text{.}$$
+Moreover, after subdividing the edges of $G$, the inequality remains strict, thus providing a counter example for the case of a simple graph.
+\end{Counter}
+
+
+
+
+\end{multicols}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{My Generation}{name=BL,column=0,row=3,span=2,below=TL,bottomaligned=BR}{
+\begin{multicols}{2}
+\large
+People try to put us d-down (Talkin' 'bout my generation)\\
+Just because we get around (Talkin' 'bout my generation)\\
+Things they do look awful c-c-cold (Talkin' 'bout my generation)\\
+I hope I die before I get old (Talkin' 'bout my generation)\\
+\bigskip
+
+This is my generation\\
+This is my generation, baby\\
+\bigskip
+
+Why don't you all f-fade away (Talkin' 'bout my generation)\\
+And don't try to dig what we all s-s-say (Talkin' 'bout my generation)\\
+I'm not trying to cause a big s-s-sensation (Talkin' 'bout my generation)\\
+I'm just talkin' 'bout my g-g-g-generation (Talkin' 'bout my generation)\\
+\bigskip
+
+This is my generation\\
+This is my generation, baby\\
+
+\end{multicols}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{References}{name=Ref,column=0,row=5,span=4,below=BL}{
+\noindent Cite the papers that you used to prove your theorems. 
+}
+
+
+\end{poster}
+
+\end{document}
