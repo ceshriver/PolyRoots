@@ -1,0 +1,179 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% a0poster Landscape Poster
+% LaTeX Template
+% Version 1.0 (22/06/13)
+%
+% The a0poster class was created by:
+% Gerlinde Kettl and Matthias Weiser (tex@kettl.de)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a0,landscape]{a0poster}
+
+\usepackage{multicol} % This is so we can have multiple columns of text side-by-side
+\columnsep=100pt % This is the amount of white space between the columns in the poster
+\columnseprule=3pt % This is the thickness of the black line between the columns in the poster
+
+\usepackage[svgnames]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
+
+\usepackage{times} % Use the times font
+%\usepackage{palatino} % Uncomment to use the Palatino font
+
+\usepackage{graphicx} % Required for including images
+\usepackage{booktabs} % Top and bottom rules for table
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+\usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
+\usepackage{wrapfig} % Allows wrapping text around tables and figures
+\usepackage{mdframed}
+
+\newmdtheoremenv{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	POSTER HEADER 
+%----------------------------------------------------------------------------------------
+
+% The header is divided into three boxes:
+% The first is 55% wide and houses the title, subtitle, names and university/organization
+% The second is 25% wide and houses contact information
+% The third is 19% wide and houses a logo for your university/organization or a photo of you
+% The widths of these boxes can be easily edited to accommodate your content as you see fit
+
+\begin{minipage}[b]{0.55\linewidth}
+\veryHuge \color{NavyBlue} \textbf{Properties of Some Real Stability Preservers} \color{Black}\\ % Title
+\huge \textbf{Stanislav Atanasov \& Christopher Shriver}\\ % Author(s)
+\huge Yale University\\ % University/organization
+\end{minipage}
+%
+\begin{minipage}[b]{0.25\linewidth}
+\hspace{5cm}
+\end{minipage}
+%
+\begin{minipage}[b]{0.19\linewidth}
+\includegraphics[width=10cm]{images/yale} % Logo or a photo of you, adjust its dimensions here
+\end{minipage}
+
+\vspace{1cm} % A bit of extra whitespace between the header and poster content
+
+%----------------------------------------------------------------------------------------
+
+\begin{multicols}{2} % This is how many columns your poster will be broken into, a poster with many figures may benefit from less columns whereas a text-heavy poster benefits from more
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\color{DarkSlateGray} % DarkSlateGray color for the rest of the content
+
+
+\section*{Introduction}
+Real stable polynomials are polynomials which have only real roots. We say that a linear transformation $T:\mathbb{R}[x]\to\mathbb{R}[x]$ \emph{preserves real stability} if $T(f)$ is real-rooted whenever $f\in\mathbb{R}[x]$ is real-rooted.  Such transformations have been object of much recent research and their theory has had significant progress in recent years. Notably, Borcea and Br\"{a}nden found their complete characterization. Nevertheless, their result does not shed any light on where on the real line do the roots of $T(f)$ lie as a function of the roots of $f$. We analyze this question focusing on two real-rootedness preservers. Most of the results, however, can be extended to a big classes of real-rootedness preservers.
+
+%----------------------------------------------------------------------------------------
+%	OBJECTIVES
+%----------------------------------------------------------------------------------------
+
+
+\section*{The $1-D$ operator}
+The $1-D$ operator, where $D=\frac{d}{dx}$, is a linear map on the set of real-rooted polynomials. It was of particular interest in a recent paper solving the Kadison-Singer conjecture, in part because of its relation to the Laguerre polynomials. We focus primarily on its effect on the differences between the roots of a polynomial.
+
+%----------------------------------------------------------------------------------------
+%	MATERIALS AND METHODS
+%----------------------------------------------------------------------------------------
+
+\subsection*{Intuitive Picture}
+
+Given a polynomial $f$, the roots of ${(1-D)f}$ can be understood as the points of equilibrium in a system of forces resulting from placing a unit charge at each of the roots of $f$ and introducing a constant gravitational force in the $-x$ direction. This is shown in the figure below.
+\vspace{1cm}
+\begin{center}
+\includegraphics[width=0.5\columnwidth]{images/charges}
+\end{center}
+\vspace{1cm}
+The blue line represents the force at $x$ due to only the blue roots, the red line shows the force due to the red root, and the purple line shows their sum. The red arrow shows where the red root repels the old solutions.
+
+This model makes it easy to see the effects of changing the roots of a polynomial, which can be very useful for bounding various quantities. The intuition provided can often be formalized into a more rigorous argument, as was done for Theorem~\ref{thm:rootgaps} below.
+\columnbreak
+
+%------------------------------------------------
+
+\subsection*{Asymptotic Results}
+
+Our main result for this operator is
+
+\begin{theorem}
+\label{thm:rootgaps}
+	For any real-rooted polynomial $f$, the difference between any two roots of ${(1-D)^n f}$ approaches infinity as $n$ approaches infinity.
+\end{theorem}
+
+Interestingly, however, in a more relative sense the roots tend to be close together:
+
+\begin{theorem}
+\label{thm:rootratio}
+	For any polynomial $f$, the ratio of any two roots of ${(1-D)^n f}$ approaches $1$ as $n$ approaches infinity.
+\end{theorem}
+
+%----------------------------------------------------------------------------------------
+%	RESULTS 
+%----------------------------------------------------------------------------------------
+
+\section*{The $T_!:x \to \frac{1}{k!}x^k$ operator}
+
+Example:
+\[x^4 + 7x^3 + 3x^2 + 2x + 1 \xrightarrow{T_!} \frac{1}{24}x^4 + \frac{7}{6}x^3 + \frac{3}{2}x^2 + 2x + 1\]
+\begin{itemize}
+ \item Preserves real-rootedness. In fact, if $p(x)$ has real roots $\lambda_1,\cdots,\lambda_n$, then
+$T!(p) = [\prod_{\lambda_i \neq 0} (\frac{1}{\lambda_i} - D) \prod_{\lambda_i = 0} D]p(x).$
+ \item Links ordinary and exponential functions (used for counting objects in combinatorics):
+$\sum_{n\ge 0} a_n x^n \xrightarrow{T_!} \sum_{n\ge 0} \frac{a_n}{n!} x^n$
+  
+\end{itemize}
+
+\subsection*{Majorization}
+
+If $p(x)$ is a real-rooted polynomial with roots $\lambda_1\leq\cdots\leq\lambda_n$ we can associate it with the weakly-increasing vector $\lambda = (\lambda_1,\cdots,\lambda_n)$ of its roots. If $x = (x_1,\cdots, x_n)$ and $y = (y_1,\cdots, y_n)$ are weakly increasing vectors in $\mathbb{R}^n$, then $x$ \emph{majorizes} $y$ (denoted by $x \succ y$) if $\sum_{i=1}^n x_i = \sum_{i=1}^n y_i$ and $\sum_{i=k}^n x_i \geq \sum_{i=}^n y_i$ for $2 \leq k\leq n.$ Given two polynomials $p(x)$ and $q(x)$, we say $p(x)$ \emph{majorizes} $q(x)$, $p \succ q$, if $\lambda \succ \mu$, where $\lambda$ and $\mu$ are the weakly-increasing vectors, associated to $p$ and $q$, respectively.
+\begin{theorem}{(Branden)}
+The linear operator $T_!:x^k\to\frac{1}{k!}x^k$ preserves majorization, i.e., $T_!(p) \succ T_!(q),$ whenever $p \succ q$.
+\end{theorem}
+ \begin{corollary}
+  $p(x) \succ q(x) \Rightarrow \lambda_{max} T_!(p) \geq \lambda_{max} T_!(q)$
+ \end{corollary}
+ 
+\subsection*{Movement of Maximum Root}
+By Vieta's formulas the roots of $p(x) = \sum_{i=1} a_i x^i$ have sum $\sum_1^n \lambda_i = -\frac{a_n}{a_{n-1}}$.
+\begin{theorem} For $p(x) = \sum_{i=1} a_i x^i$, we have
+\[\lambda_{max}(p(x)) \geq \frac{ \lambda_{max} (T_!(p))}{\lambda_{max}(L_n(x))} \geq -\frac{a_{n-1}}{n a_n},\]
+ where $L_n(x)$ is the $n$-th Laguerre polynomial
+\end{theorem}
+
+
+ %----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+
+\nocite{*} % Print all references regardless of whether they were cited in the poster or not
+\bibliographystyle{plain} % Plain referencing style
+\begin{thebibliography}{9}
+ \bibitem{fisk} S. Fisk. {\em Polynomials, roots, and interlacing.} 2008.
+
+ \bibitem{mss14} A. Marcus, D. Spielman, and N. Srivastava. {\em Ramanujan graphs and the solution of the Kadison-Singer problem.} Proceedings of ICM, Seoul, 2014.
+
+ \bibitem{bb10} J. Borcea and P. Br\"{a}nd\'{e}n {\em Hyperbolicity preservers and majorization.} 2010.
+\end{thebibliography}
+
+
+%----------------------------------------------------------------------------------------
+
+\end{multicols}
+\end{document}

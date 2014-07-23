@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 \documentclass[landscape,final,a0paper,fontscale=0.29]{baposter}
+=======
+\documentclass[landscape,final,a0paper,fontscale=0.295]{baposter}
+>>>>>>> origin/master
 
 \usepackage[english]{babel}
 \usepackage{amsthm}
@@ -111,6 +115,10 @@
 ;
    \path [fill=lightblue!50!black,line width=0pt]
      ([yshift=-1\FSZ] video.south west) rectangle (video.south east)
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     \foreach \x in {1,2,...,#2} {
       {[rounded corners=0.6] ($(video.south west)+(-0.7,-0.2)+(\x,0)$) rectangle +(0.4,-0.6)}
     }
@@ -138,8 +146,13 @@
   bgColorOne=white,
   bgColorTwo=white,
   borderColor=black,
+<<<<<<< HEAD
   headerColorOne=black,
   headerColorTwo=lightblue,
+=======
+  headerColorOne=blue,
+  headerColorTwo=blue,
+>>>>>>> origin/master
   headerFontColor=white,
   boxColorOne=white,
   boxColorTwo=lightblue,
@@ -149,7 +162,7 @@
   eyecatcher=true,
   headerborder=closed,
   headerheight=0.1\textheight,
-%  textfont=\sc, An example of changing the text font
+  %textfont=\sc, An example of changing the text font
   headershape=roundedright,
   headershade=shadelr,
   headerfont=\Large\bf\textsc, %Sans Serif
@@ -160,7 +173,7 @@
   linewidth=2pt
   }
   % Eye Catcher
-    %{\includegraphics[height=8em][bb=0 0 360 360]{images/yale}}
+    {\includegraphics[height=8em]{images/yale}}
   % Title
   {\bf\textsc{Poster Title}\vspace{0.5em}}
   % Authors
@@ -196,6 +209,7 @@
 \headerbox{Background}{name=BG,column=0,row=0,span=4}{
 \begin{multicols}{2}
 \large
+<<<<<<< HEAD
 Real-rooted polynomials are these polynomials who have only real roots. We say that a linear transformation $T:\mathbb{R}[x]\to\mathbb{R}[x]$ \emph{preserves real-rootedness}, if $T(f)$ is real-rooted, whenever $f\in\mathbb{R}[x]$ is real-rooted.  Such transformations have been object of many recent research and their theory has had a significant progress in recent years. Notably, Borcea and Br\"{a}nden found their complete characterization. Nevertheless, their result does not shed any light on where on the real line do the roots of $T(f)$ lie as some dependance on the roots of $f$. We analyze this question focusing on two real-rootedness preserves. Most of the results, however, can be extended to a big classes of real-rootedness preservers.
 \end{multicols}
 }
@@ -224,11 +238,39 @@ There exist at most finitely many good posters.
 \end{theorem}
 
 
+=======
+\noindent Real stable polynomials are polynomials which have only real roots. We say that a linear transformation $T:\mathbb{R}[x]\to\mathbb{R}[x]$ \emph{preserves real stability} if $T(f)$ is real-rooted whenever $f$ is real-rooted.  Such transformations have been object of much recent research and their theory has had significant progress in recent years. Notably, Borcea and Br\"{a}nd\'{e}n found their complete characterization. Nevertheless, their result does not shed any light on where the roots of $T(f)$ lie as a function of the roots of $f$. We analyze this question focusing on two real stability preservers. Most of the results, however, can be extended to a large class of maps.
 \end{multicols}
+}
+
+%FIRST MULTICOLUMN  
+\headerbox{The $1-D$ operator}{name=TL,column=0,span=2,below=BG}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\large
+\noindent The $1-D$ operator, where $D=\frac{d}{dx}$, is a linear map on the set of real stable polynomials. It was of particular interest in a recent paper solving the Kadison-Singer problem, in part because of its relation to the Laguerre polynomials. We focus primarily on its effect on the differences between the roots of a polynomial.
+
+}
+
+\headerbox{Intuitive picture}{name=TC,column=0,span=2,below=TL}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{multicols}{2}
+\large
+\noindent Given a polynomial $f$, the roots of ${(1-D)f}$ can be understood as the points of equilibrium in a system of forces resulting from placing a unit charge at each of the roots of $f$ and introducing a constant gravitational force in the $-x$ direction. This is shown in the figure below.
+\begin{multicols}{2}
+\begin{center}
+\includegraphics[width=0.8\columnwidth]{images/charges}
+\end{center}
+The blue line represents the force at $x$ due to only the blue roots, the red line shows the force due to the red root, and the purple line shows their sum. The red arrow shows how adding the red root repels the old solutions.
+>>>>>>> origin/master
+\end{multicols}
+
+\noindent This model makes it easy to see the effects of changing the roots of a polynomial, which can be very useful for bounding various quantities. The intuition provided can often be formalized into a more rigorous argument, as was done for Theorem~\ref{thm:rootgaps} below.
+%\end{multicols}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<<<<<<< HEAD
 \headerbox{My Generation}{name=BL,column=0,row=3,span=2,below=TL}{
 \begin{multicols}{2}
 \large
@@ -252,13 +294,33 @@ This is my generation\\
 This is my generation, baby\\
 
 \end{multicols}
+=======
+
+\headerbox{Asymptotic results}{name=BL,column=0,row=3,span=2,below=TC}{
+%\begin{multicols}{1}
+\large
+\noindent Our main result for this operator is
+\begin{theorem}
+\label{thm:rootgaps}
+	For any real-rooted polynomial $f$, the difference of any two roots of ${(1-D)^n f}$ approaches infinity as $n$ approaches infinity.
+\end{theorem}
+
+Interestingly, however, in a relative sense the roots tend to be close together:
+
+\begin{theorem}
+\label{thm:rootratio}
+	For any polynomial $f$, the ratio of any two roots of ${(1-D)^n f}$ approaches $1$ as $n$ approaches infinity.
+\end{theorem}
+%\end{multicols}
+
+>>>>>>> origin/master
 }
 
 %END OF THIS MULTICOLUMN
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \headerbox{The \small{$T_!:x \to \frac{1}{k!}x^k$} operator.}{name=TR,row=1,column=2,span=2, below=BG}{
+    \headerbox{The $T_!:x \to x^k/k!$ operator}{name=TR,row=1,column=2,span=2, below=BG}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{multicols}{1}
 \large
@@ -266,11 +328,19 @@ This is my generation, baby\\
 Example:
 \[x^4 + 7x^3 + 3x^2 + 2x + 1 \xrightarrow{T_!} \frac{1}{24}x^4 + \frac{7}{6}x^3 + \frac{3}{2}x^2 + 2x + 1\]
 \begin{itemize}
+<<<<<<< HEAD
  \item Preserves real-rootedness. In fact, if $p(x)$ has real roots $\lambda_1,\cdots,\lambda_n$, then
 $T!(p) = [\prod_{\lambda_i \neq 0} (\frac{1}{\lambda_i} - D) \prod_{\lambda_i = 0} D]p(x).$
  \item Links ordinary and exponential functions (used for counting objects in combinatorics):
 $\sum_{n\ge 0} a_n x^n \xrightarrow{T_!} \sum_{n\ge 0} \frac{a_n}{n!} x^n$
 
+=======
+ \item Preserves real-rootedness. In fact, if $p(x)$ has real roots $\lambda_1,\cdots,\lambda_n$, then we have \\
+$T_!(p) = [\prod_{\lambda_i \neq 0} (\frac{1}{\lambda_i} - D) \prod_{\lambda_i = 0} D]p(x).$
+ \item Links ordinary and exponential generating functions (used for counting objects in combinatorics):
+$\sum_{n\ge 0} a_n x^n \xrightarrow{T_!} \sum_{n\ge 0} \frac{a_n}{n!} x^n$.
+  
+>>>>>>> origin/master
 \end{itemize}
 %\end{multicols}
 }
@@ -278,27 +348,36 @@ $\sum_{n\ge 0} a_n x^n \xrightarrow{T_!} \sum_{n\ge 0} \frac{a_n}{n!} x^n$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<<<<<<< HEAD
 \headerbox{\vspace{-1cm}Majorization}{name=MJRZ,column=2,row=3,span=2,below=TR}{
 \begin{multicols}{2}
 \noindent
 \large
 If the polynomial $p(x)$ has real roots $\lambda_1\leq\cdots\leq\lambda_n$, we associate it with the weakly-increasing vector $\lambda = (\lambda_1,\cdots,\lambda_n)$ of its roots. Suppose $x = (x_1,\cdots, x_n)$ and $y = (y_1,\cdots, y_n)$ are weakly increasing vectors in $\mathbb{R}^n$, then $x$ \emph{majorizes} $y$ (denoted by $x \succ y$) if $\sum_{i=1}^n x_i = \sum_{i=1}^n y_i$ and $\sum_{i=k}^n x_i \geq \sum_{i=}^n y_i$ for $2 \leq k\leq n.$ Given two polynomials $p(x)$ and $q(x)$, we say $p(x)$ \emph{majorizes} $q(x)$, $p \succ q$, if $\lambda \succ \mu$, where $\lambda$ and $\mu$ are the weakly-increasing vectors, associated to $p$ and $q$, respectively.
 \begin{theorem}{(Br\"{a}nden)}
+=======
+\headerbox{Majorization}{name=MJRZ,column=2,row=3,span=2,below=TR}{
+\noindent
+\large
+If a polynomial $p$ has real roots $\lambda_1\leq\cdots\leq~\lambda_n$, we associate it with the weakly-increasing vector $\lambda = (\lambda_1,\cdots,\lambda_n)$ of its roots. Suppose $x = (x_1,\cdots, x_n)$ and $y = (y_1,\cdots, y_n)$ are weakly increasing vectors in $\mathbb{R}^n$, then $x$ \emph{majorizes} $y$ (denoted by $x \succ y$) if $\sum_{i=1}^n x_i = \sum_{i=1}^n y_i$ and $\sum_{i=k}^n x_i \geq \sum_{i=k}^n y_i$ for $2 \leq k\leq n.$ Given two polynomials $p(x)$ and $q(x)$, we say $p$ \emph{majorizes}~$q$, $p \succ q$, if $\lambda \succ \mu$, where $\lambda$ and $\mu$ are the weakly-increasing vectors associated to $p$ and $q$, respectively.
+\begin{theorem}{(Br\"{a}nd\'{e}n)}
+>>>>>>> origin/master
 The linear operator $T_!:~x^k\to\frac{1}{k!}x^k$ preserves majorization, i.e., $T_!(p) \succ T_!(q),$ whenever $p \succ q$.
 \end{theorem}
  \begin{corollary}
-  $p(x) \succ q(x) \Rightarrow \lambda_{max} T_!(p) \geq \lambda_{max} T_!(q)$
+  $p(x) \succ q(x) \Rightarrow \lambda_{max} T_!(p) \geq \lambda_{max} T_!(q)$.
  \end{corollary}
-\end{multicols}
 }
 
 \headerbox{Movement of maximum root}{name=MRT,column=2,row=4,span=2,below=MJRZ}{
-By Vieta's formulas the roots of $p(x) = \sum_{i=1} a_i x^i$ have sum $\sum_1^n \lambda_i = -\frac{a_n}{a_{n-1}}$.
+\large
+\noindent By Vieta's formulas the roots of $p(x) = \sum_{i=0}^n a_i x^i$ have sum $\sum_{i=1}^n \lambda_i = -\frac{a_n}{a_{n-1}}$.
 \begin{theorem} For $p(x) = \sum_{i=1} a_i x^i$, we have
 \[\lambda_{max}(p(x)) \geq \frac{ \lambda_{max} (T_!(p))}{\lambda_{max}(L_n(x))} \geq -\frac{a_{n-1}}{n a_n},\]
- where $L_n(x)$ is the $n$-th Laguerre polynomial
+ where $L_n(x)$ is the $n$-th Laguerre polynomial.
 \end{theorem}
 }
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{References}{name=Ref,column=0,row=5,span=4,below=MRT}{
@@ -308,7 +387,7 @@ By Vieta's formulas the roots of $p(x) = \sum_{i=1} a_i x^i$ have sum $\sum_1^n 
 
  A. Marcus, D. Spielman, and N. Srivastava. {\em Ramanujan graphs and the solution of the Kadison-Singer problem.} Proceedings of ICM, Seoul, 2014.
 
- J. Borcea, and P. Br\"{a}nden {\em Hyperbolicity preservers and majorization.} 2010.
+ J. Borcea and P. Br\"{a}nd\'{e}n. {\em Hyperbolicity preservers and majorization.} 2010.
 
 }
 
